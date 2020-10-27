@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "322519277329",
+    "firebase_url": "https://match-the-tiles.firebaseio.com",
+    "project_id": "match-the-tiles",
+    "storage_bucket": "match-the-tiles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322519277329:android:0133c8b609e40e287b36b0",
+        "android_client_info": {
+          "package_name": "com.example.matchthetiles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322519277329-iu6967qshh94l9fuc899434j6ebjc6jn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.matchthetiles",
+            "certificate_hash": "4ed6a7dbc87cf988a1c3a1643362ab866bc9a622"
+          }
+        },
+        {
+          "client_id": "322519277329-doiml13h5iga8il2si689ut99b3p4hn3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8nDFDIlYglEqOXvBunTgewEvWqL0697A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322519277329-doiml13h5iga8il2si689ut99b3p4hn3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
