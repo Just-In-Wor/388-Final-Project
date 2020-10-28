@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Round2">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="667dp"
+        android:text="Advance to Round 3"
+        android:onClick="next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -342,6 +342,8 @@ public class Round1 extends AppCompatActivity {
     public void Next(View v){
 
         //use this to go to next round
+        Intent i = new Intent(this,Round2.class);
+        startActivity(i);
     }
 
 

@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Round5">
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="670dp"
+        android:text="Back to Main Menu"
+        android:onClick="mainMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

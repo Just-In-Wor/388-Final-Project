@@ -137,8 +137,8 @@
         android:id="@+id/mainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:onClick="mainMenu"
         android:text="Back to Main Menu"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,8 +151,9 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="38dp"
         android:onClick="Next"
-        android:text="Next"
+        android:text="Advance to Round 2"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/mainMenu"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
