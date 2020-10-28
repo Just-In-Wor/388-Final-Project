@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Match The Tiles</string>
+    <string name="sign_in">Sign-In</string>
+ 
     <string name="currentTime">Time: 0</string>
     <string name="yourBestTime">My Best Time: 0</string>
     <string name="globalBestTime">Global Best Time: 0</string>
-    <string name="title_activity_round2">Round2</string>
-
 </resources>
