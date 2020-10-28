@@ -4,11 +4,5 @@
     <string name="yourBestTime">My Best Time: 0</string>
     <string name="globalBestTime">Global Best Time: 0</string>
     <string name="title_activity_round2">Round2</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
-    <string name="title_activity_round3">Round3</string>
-    <string name="title_activity_round5">Round5</string>
+
 </resources>
