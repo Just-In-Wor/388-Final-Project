@@ -2,6 +2,7 @@ package com.example.matchthetiles;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -64,18 +65,23 @@ public class Round1 extends AppCompatActivity {
         iv5 = findViewById(R.id.imageView5);
         iv6 = findViewById(R.id.imageView6);
 
+        ConstraintLayout lay = findViewById(R.layout.activity_round1);
         switch(theme) {
             case "winter":
                 changeTheme(R.drawable.snowflaketile);
+                findViewById(R.id.round1Layout).setBackgroundColor(Color.GREEN);
             break;
             case "fall":
                 changeTheme(R.drawable.leaf);
+                findViewById(R.id.round1Layout).setBackgroundColor(Color.parseColor("#ffa500"));
                 break;
             case "spring":
                 changeTheme(R.drawable.spring);
+                findViewById(R.id.round1Layout).setBackgroundColor(Color.YELLOW);
                 break;
             case "summer":
                 changeTheme(R.drawable.summer);
+                findViewById(R.id.round1Layout).setBackgroundColor(Color.BLUE);
                 break;
         }
 
