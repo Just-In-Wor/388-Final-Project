@@ -51,6 +51,7 @@ public class Round1 extends AppCompatActivity {
     int myBestTime;
 
     int globalBestTime;
+    String theme;
 
 
 
@@ -64,8 +65,7 @@ public class Round1 extends AppCompatActivity {
         flippedUp = 0;
         Intent intent = getIntent();
         score = 0;
-
-        String theme = intent.getStringExtra("theme");
+        this.theme = intent.getStringExtra("theme");
         iv1 = findViewById(R.id.imageView);
         iv2 = findViewById(R.id.imageView2);
         iv3 = findViewById(R.id.imageView3);
@@ -73,7 +73,6 @@ public class Round1 extends AppCompatActivity {
         iv5 = findViewById(R.id.imageView5);
         iv6 = findViewById(R.id.imageView6);
 
-        ConstraintLayout lay = findViewById(R.layout.activity_round1);
         switch(theme) {
             case "winter":
                 changeTheme(R.drawable.snowflaketile);
@@ -565,15 +564,22 @@ public class Round1 extends AppCompatActivity {
 
     public void mainMenu(View v){
 
-        Intent i = new Intent(this,MainActivity.class);
-        startActivity(i);
+        //use this to go to next round
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("theme", theme);
+        intent.putExtra("myBestTime", myBestTime);
+        intent.putExtra("globalBestTime", globalBestTime);
+        startActivity(intent);
     }
 
     public void Next(View v){
 
         //use this to go to next round
-        Intent i = new Intent(this,Round2.class);
-        startActivity(i);
+        Intent intent = new Intent(this,Round2.class);
+        intent.putExtra("theme", theme);
+        intent.putExtra("myBestTime", myBestTime);
+        intent.putExtra("globalBestTime", globalBestTime);
+        startActivity(intent);
     }
 
 

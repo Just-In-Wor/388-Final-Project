@@ -42,6 +42,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent i = getIntent();
+        theme = i.getStringExtra("theme");
+
+        if(theme != null){
+
+            switch(theme) {
+                case "winter":
+                    findViewById(R.id.homeScreen).setBackgroundColor(Color.GREEN);
+                    break;
+                case "fall":
+                    findViewById(R.id.homeScreen).setBackgroundColor(Color.parseColor("#ffa500"));
+                    break;
+                case "spring":
+                    findViewById(R.id.homeScreen).setBackgroundColor(Color.YELLOW);
+                    break;
+                case "summer":
+                    findViewById(R.id.homeScreen).setBackgroundColor(Color.BLUE);
+                    break;
+            }
+
+
+        }
         // Set default username is anonymous.
 //        mUsername = ANONYMOUS;
 //
