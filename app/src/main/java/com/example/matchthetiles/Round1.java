@@ -141,11 +141,12 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv6.setClickable(false);
-                iv1.setImageResource(R.drawable.cy);
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                iv1.setImageResource(R.drawable.cy);
                 iv2.setClickable(true);
                 iv3.setClickable(true);
                 iv4.setClickable(true);
@@ -212,11 +213,12 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv6.setClickable(false);
-                iv2.setImageResource(R.drawable.cycircle);
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                iv2.setImageResource(R.drawable.cycircle);
                 iv1.setClickable(true);
                 iv3.setClickable(true);
                 iv4.setClickable(true);
@@ -286,11 +288,12 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv6.setClickable(false);
-                iv3.setImageResource(R.drawable.statelogo);
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                iv3.setImageResource(R.drawable.statelogo);
                 iv2.setClickable(true);
                 iv1.setClickable(true);
                 iv4.setClickable(true);
@@ -359,11 +362,12 @@ public class Round1 extends AppCompatActivity {
                 iv1.setClickable(false);
                 iv5.setClickable(false);
                 iv6.setClickable(false);
-                iv4.setImageResource(R.drawable.cy);
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                iv4.setImageResource(R.drawable.cy);
                 iv2.setClickable(true);
                 iv3.setClickable(true);
                 iv1.setClickable(true);
@@ -425,16 +429,18 @@ public class Round1 extends AppCompatActivity {
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
+
                 iv2.setClickable(false);
                 iv3.setClickable(false);
                 iv4.setClickable(false);
                 iv1.setClickable(false);
                 iv6.setClickable(false);
-                iv5.setImageResource(R.drawable.statelogo);
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                iv5.setImageResource(R.drawable.statelogo);
                 iv2.setClickable(true);
                 iv3.setClickable(true);
                 iv4.setClickable(true);
@@ -497,17 +503,18 @@ public class Round1 extends AppCompatActivity {
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
+
                 iv2.setClickable(false);
                 iv3.setClickable(false);
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv1.setClickable(false);
-                iv6.setImageResource(R.drawable.cycircle);
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-
+                iv6.setImageResource(R.drawable.cycircle);
                 iv2.setClickable(true);
                 iv3.setClickable(true);
                 iv4.setClickable(true);
