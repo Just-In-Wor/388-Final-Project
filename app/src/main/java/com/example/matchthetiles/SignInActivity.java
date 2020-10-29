@@ -69,6 +69,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void signIn() {
         Intent signInIntent = mSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
     @Override
@@ -106,7 +107,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                            Intent i = new Intent(SignInActivity.this,MainActivity.class);
+                            startActivity(i);
                             finish();
                         }
                     }

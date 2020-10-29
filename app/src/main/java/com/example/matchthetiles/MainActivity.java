@@ -43,28 +43,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Set default username is anonymous.
-        mUsername = ANONYMOUS;
-
-        // Initialize Firebase Auth
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
-        if (mFirebaseUser == null) {
-            // Not signed in, launch the Sign In activity
-            startActivity(new Intent(this, SignInActivity.class));
-            finish();
-            return;
-        } else {
-            mUsername = mFirebaseUser.getDisplayName();
-            if (mFirebaseUser.getPhotoUrl() != null) {
-                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
-            }
-        }
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mSignInClient = GoogleSignIn.getClient(this, gso);
+//        mUsername = ANONYMOUS;
+//
+//        // Initialize Firebase Auth
+//        mFirebaseAuth = FirebaseAuth.getInstance();
+//        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+//        if (mFirebaseUser == null) {
+//            // Not signed in, launch the Sign In activity
+//            startActivity(new Intent(this, SignInActivity.class));
+//            finish();
+//            return;
+//        } else {
+//            mUsername = mFirebaseUser.getDisplayName();
+//            if (mFirebaseUser.getPhotoUrl() != null) {
+//                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+//            }
+//        }
+//
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//        mSignInClient = GoogleSignIn.getClient(this, gso);
 
 //        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
 //        SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {
@@ -86,21 +86,21 @@ public class MainActivity extends AppCompatActivity {
 //        mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.sign_out_menu:
-                mFirebaseAuth.signOut();
-                mSignInClient.signOut();
-
-                mUsername = ANONYMOUS;
-                startActivity(new Intent(this, SignInActivity.class));
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.sign_out_menu:
+//                mFirebaseAuth.signOut();
+//                mSignInClient.signOut();
+//
+//                mUsername = ANONYMOUS;
+//                startActivity(new Intent(this, SignInActivity.class));
+//                finish();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     public void start(View v){
         Intent intent = new Intent(this, Round1.class);

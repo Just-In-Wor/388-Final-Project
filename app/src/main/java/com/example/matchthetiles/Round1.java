@@ -4,14 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
+import android.provider.Telephony;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.concurrent.TimeUnit;
 
 public class Round1 extends AppCompatActivity {
 
@@ -123,214 +131,436 @@ public class Round1 extends AppCompatActivity {
     public void onClickTile1(View v) {
 
         flippedUp++;
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv1);
 
-        if(flippedUp == 1){
-            iv1.setImageResource(R.drawable.cy);
-            firstTileResource = iv1;
-            firstTileHidden = 1;
-        }
-
-        if(flippedUp == 2) {
-            iv1.setImageResource(R.drawable.cy);
-
-            if(firstTileHidden != 1){
-                firstTileResource.setImageResource(themeid);
-                iv1.setImageResource(themeid);
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                iv2.setClickable(false);
+                iv3.setClickable(false);
+                iv4.setClickable(false);
+                iv5.setClickable(false);
+                iv6.setClickable(false);
+                iv1.setImageResource(R.drawable.cy);
             }
-            else{
-                score++;
-                if (score == 3){
-                    findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
-                    handler.removeCallbacks(timer);
-                    if(time < myBestTime){
-                        myBestTime = time;
-                        ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
-                        findViewById(R.id.next).setVisibility(View.VISIBLE);
-                    }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv2.setClickable(true);
+                iv3.setClickable(true);
+                iv4.setClickable(true);
+                iv5.setClickable(true);
+                iv6.setClickable(true);
+                if(flippedUp == 1){
+                    firstTileResource = iv1;
+                    firstTileHidden = 1;
                 }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 1){
+                        firstTileResource.setImageResource(themeid);
+                        iv1.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 3){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
+
             }
 
-            flippedUp = 0;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+
     }
 
-    public void onClickTile2(View v) {
+    public void onClickTile2(View v) throws InterruptedException {
 
         flippedUp++;
 
-        if(flippedUp == 1){
-            iv2.setImageResource(R.drawable.cycircle);
-            firstTileResource = iv2;
-            firstTileHidden = 2;
-        }
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv2);
 
-        if(flippedUp == 2) {
-            iv2.setImageResource(R.drawable.cycircle);
-
-            if(firstTileHidden != 2){
-                firstTileResource.setImageResource(themeid);
-                iv2.setImageResource(themeid);
-
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                iv1.setClickable(false);
+                iv3.setClickable(false);
+                iv4.setClickable(false);
+                iv5.setClickable(false);
+                iv6.setClickable(false);
+                iv2.setImageResource(R.drawable.cycircle);
             }
-            else{
-                score++;
-                if (score == 3){
-                    findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
-                    handler.removeCallbacks(timer);
-                    if(time < myBestTime){
-                        myBestTime = time;
-                        ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
-                        findViewById(R.id.next).setVisibility(View.VISIBLE);
-                    }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv1.setClickable(true);
+                iv3.setClickable(true);
+                iv4.setClickable(true);
+                iv5.setClickable(true);
+                iv6.setClickable(true);
+                if(flippedUp == 1){
+
+                    firstTileResource = iv2;
+                    firstTileHidden = 2;
                 }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 2){
+                        firstTileResource.setImageResource(themeid);
+                        iv2.setImageResource(themeid);
+
+                    }
+                    else{
+                        score++;
+                        if (score == 3){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
             }
 
-            flippedUp = 0;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+
+
     }
 
     public void onClickTile3(View v) {
 
         flippedUp++;
 
-        if(flippedUp == 1){
-            iv3.setImageResource(R.drawable.statelogo);
-            firstTileResource = iv3;
-            firstTileHidden = 3;
-        }
 
-        if(flippedUp == 2) {
-            iv3.setImageResource(R.drawable.statelogo);
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv3);
 
-            if(firstTileHidden != 3){
-                firstTileResource.setImageResource(themeid);
-                iv3.setImageResource(themeid);
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                iv2.setClickable(false);
+                iv1.setClickable(false);
+                iv4.setClickable(false);
+                iv5.setClickable(false);
+                iv6.setClickable(false);
+                iv3.setImageResource(R.drawable.statelogo);
             }
-            else{
-                score++;
-                if (score == 3){
-                    findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
-                    handler.removeCallbacks(timer);
-                    if(time < myBestTime){
-                        myBestTime = time;
-                        ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
-                        findViewById(R.id.next).setVisibility(View.VISIBLE);
-                    }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv2.setClickable(true);
+                iv1.setClickable(true);
+                iv4.setClickable(true);
+                iv5.setClickable(true);
+                iv6.setClickable(true);
+                if(flippedUp == 1){
+
+                    firstTileResource = iv3;
+                    firstTileHidden = 3;
                 }
 
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 3){
+                        firstTileResource.setImageResource(themeid);
+                        iv3.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 3){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+
+                    }
+
+                    flippedUp = 0;
+
+                }
+
+
             }
 
-            flippedUp = 0;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+
     }
 
     public void onClickTile4(View v) {
 
         flippedUp++;
 
-        if(flippedUp == 1){
-            iv4.setImageResource(R.drawable.cy);
-            firstTileResource = iv4;
-            firstTileHidden = 1;
-        }
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv4);
 
-        if(flippedUp == 2) {
-            iv4.setImageResource(R.drawable.cy);
-
-
-            if(firstTileHidden != 1){
-                firstTileResource.setImageResource(themeid);
-                iv4.setImageResource(themeid);
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                iv2.setClickable(false);
+                iv3.setClickable(false);
+                iv1.setClickable(false);
+                iv5.setClickable(false);
+                iv6.setClickable(false);
+                iv4.setImageResource(R.drawable.cy);
             }
-            else{
-                score++;
-                if (score == 3){
-                    findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
-                    handler.removeCallbacks(timer);
-                    if(time < myBestTime){
-                        myBestTime = time;
-                        ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
-                        findViewById(R.id.next).setVisibility(View.VISIBLE);
-                    }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv2.setClickable(true);
+                iv3.setClickable(true);
+                iv1.setClickable(true);
+                iv5.setClickable(true);
+                iv6.setClickable(true);
+                if(flippedUp == 1){
+
+                    firstTileResource = iv4;
+                    firstTileHidden = 1;
                 }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 1){
+                        firstTileResource.setImageResource(themeid);
+                        iv4.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 3){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
             }
 
-            flippedUp = 0;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+
     }
 
     public void onClickTile5(View v) {
 
         flippedUp++;
 
-        if(flippedUp == 1){
-            iv5.setImageResource(R.drawable.statelogo);
-            firstTileResource = iv5;
-            firstTileHidden = 3;
-        }
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv5);
 
-        if(flippedUp == 2) {
-            iv5.setImageResource(R.drawable.statelogo);
-
-            if(firstTileHidden != 3){
-                firstTileResource.setImageResource(themeid);
-                iv5.setImageResource(themeid);
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                iv2.setClickable(false);
+                iv3.setClickable(false);
+                iv4.setClickable(false);
+                iv1.setClickable(false);
+                iv6.setClickable(false);
+                iv5.setImageResource(R.drawable.statelogo);
             }
-            else{
-                score++;
-                if (score == 3){
-                    findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
-                    handler.removeCallbacks(timer);
-                    if(time < myBestTime){
-                        myBestTime = time;
-                        ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
-                        findViewById(R.id.next).setVisibility(View.VISIBLE);
-                    }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv2.setClickable(true);
+                iv3.setClickable(true);
+                iv4.setClickable(true);
+                iv1.setClickable(true);
+                iv6.setClickable(true);
+                if(flippedUp == 1){
+
+                    firstTileResource = iv5;
+                    firstTileHidden = 3;
                 }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 3){
+                        firstTileResource.setImageResource(themeid);
+                        iv5.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 3){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
             }
 
-            flippedUp = 0;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+
     }
 
     public void onClickTile6(View v) {
 
         flippedUp++;
 
-        if(flippedUp == 1){
-            iv6.setImageResource(R.drawable.cycircle);
-            firstTileResource = iv6;
-            firstTileHidden = 2;
-        }
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv6);
 
-        if(flippedUp == 2) {
-            iv6.setImageResource(R.drawable.cycircle);
-
-            if(firstTileHidden != 2){
-                firstTileResource.setImageResource(themeid);
-                iv6.setImageResource(themeid);
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                iv2.setClickable(false);
+                iv3.setClickable(false);
+                iv4.setClickable(false);
+                iv5.setClickable(false);
+                iv1.setClickable(false);
+                iv6.setImageResource(R.drawable.cycircle);
             }
-            else{
-                score++;
-                if (score == 3){
-                    findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
-                    handler.removeCallbacks(timer);
-                    if(time < myBestTime){
-                        myBestTime = time;
-                        ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
-                        findViewById(R.id.next).setVisibility(View.VISIBLE);
-                    }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+                iv2.setClickable(true);
+                iv3.setClickable(true);
+                iv4.setClickable(true);
+                iv5.setClickable(true);
+                iv1.setClickable(true);
+
+                if(flippedUp == 1){
+
+                    firstTileResource = iv6;
+                    firstTileHidden = 2;
                 }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 2){
+                        firstTileResource.setImageResource(themeid);
+                        iv6.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 3){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
             }
 
-            flippedUp = 0;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+
+
     }
 
     public void mainMenu(View v){
