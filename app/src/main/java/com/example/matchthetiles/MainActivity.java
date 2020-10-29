@@ -134,6 +134,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void myHighScores(View v){
+        Intent intent = new Intent(this, MyHighScores.class);
+
+        intent.putExtra("theme", theme);
+        intent.putExtra("myBestTime", 15);
+        intent.putExtra("globalBestTime", 9);
+        startActivity(intent);
+    }
+
+    public void globalHighScores(View v){
+        Intent intent = new Intent(this, GlobalHighScores.class);
+
+        intent.putExtra("theme", theme);
+        intent.putExtra("myBestTime", 15);
+        intent.putExtra("globalBestTime", 9);
+        startActivity(intent);
+    }
+
     public void springTheme(View v){
 
         theme = "spring";
