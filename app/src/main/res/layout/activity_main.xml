@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Match the Tiles"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -24,10 +25,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="146dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="144dp"
         android:onClick="start"
         android:text="Start"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -35,10 +37,11 @@
         android:id="@+id/winterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="143dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="16dp"
         android:onClick="winterTheme"
         android:text="Winter Theme"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/summerButton" />
 
@@ -46,10 +49,11 @@
         android:id="@+id/summerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="220dp"
         android:onClick="summerTheme"
         android:text="Summer Theme"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -57,10 +61,11 @@
         android:id="@+id/fallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="153dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="16dp"
         android:onClick="fallTheme"
         android:text="Fall Theme"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/springButton" />
 
@@ -68,10 +73,11 @@
         android:id="@+id/springButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="12dp"
         android:onClick="springTheme"
         android:text="Spring Theme"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winterButton" />
 
