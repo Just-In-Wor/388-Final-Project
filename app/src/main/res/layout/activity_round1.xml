@@ -129,7 +129,7 @@
         android:layout_marginStart="140dp"
         android:layout_marginTop="220dp"
         android:background="#FFEB3B"
-        android:text="YOU WIN!!!"
+        android:text="                  YOU WIN!!!"
         android:textAlignment="center"
         android:textSize="60sp"
         android:visibility="invisible"
@@ -149,14 +149,14 @@
 
     <Button
         android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="314dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="140dp"
+        android:background="#FFEB3B"
         android:onClick="Next"
         android:text="Advance to Round 2"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/mainMenu"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
