@@ -65,65 +65,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-        // Set default username is anonymous.
-//        mUsername = ANONYMOUS;
-//
-//        // Initialize Firebase Auth
-//        mFirebaseAuth = FirebaseAuth.getInstance();
-//        mFirebaseUser = mFirebaseAuth.getCurrentUser();
-//        if (mFirebaseUser == null) {
-//            // Not signed in, launch the Sign In activity
-//            startActivity(new Intent(this, SignInActivity.class));
-//            finish();
-//            return;
-//        } else {
-//            mUsername = mFirebaseUser.getDisplayName();
-//            if (mFirebaseUser.getPhotoUrl() != null) {
-//                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
-//            }
-//        }
-//
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken(getString(R.string.default_web_client_id))
-//                .requestEmail()
-//                .build();
-//        mSignInClient = GoogleSignIn.getClient(this, gso);
+         //Set default username is anonymous.
+        mUsername = ANONYMOUS;
 
-//        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
-//        SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {
-//            @Override
-//            public FriendlyMessage parseSnapshot(DataSnapshot dataSnapshot) {
-//                FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
-//                if (friendlyMessage != null) {
-//                    friendlyMessage.setId(dataSnapshot.getKey());
-//                }
-//                return friendlyMessage;
-//            }
-//        };
-//
-//        DatabaseReference messagesRef = mFirebaseDatabaseReference.child(MESSAGES_CHILD);
-//        FirebaseRecyclerOptions<FriendlyMessage> options =
-//                new FirebaseRecyclerOptions.Builder<FriendlyMessage>()
-//                        .setQuery(messagesRef, parser)
-//                        .build();
-//        mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        if (mFirebaseUser == null) {
+            // Not signed in, launch the Sign In activity
+            startActivity(new Intent(this, SignInActivity.class));
+            finish();
+            return;
+        } else {
+            mUsername = mFirebaseUser.getDisplayName();
+            if (mFirebaseUser.getPhotoUrl() != null) {
+                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+            }
+        }
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.sign_out_menu:
-//                mFirebaseAuth.signOut();
-//                mSignInClient.signOut();
-//
-//                mUsername = ANONYMOUS;
-//                startActivity(new Intent(this, SignInActivity.class));
-//                finish();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
 
     public void start(View v){
         Intent intent = new Intent(this, Round1.class);

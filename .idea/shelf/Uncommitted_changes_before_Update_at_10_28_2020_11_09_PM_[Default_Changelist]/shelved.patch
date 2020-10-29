@@ -1,0 +1,368 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.matchthetiles\">\r\n\r\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\" />\r\n\r\n    <uses-feature android:name=\"android.hardware.type.watch\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n      \r\n        <activity android:name=\".SignInActivity\"></activity>\r\n        <activity android:name=\".Round5\"></activity>\r\n        <activity android:name=\".Round4\"></activity>\r\n        <activity android:name=\".Round3\"></activity>\r\n        <activity android:name=\".Round2\"></activity>\r\n        <activity android:name=\".Round1\"></activity>\r\n\r\n        <activity android:name=\".MainActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ app/src/main/AndroidManifest.xml	(date 1603936124450)
+@@ -2,9 +2,9 @@
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.example.matchthetiles">
+ 
+-    <uses-permission android:name="android.permission.WAKE_LOCK" />
++<!--    <uses-permission android:name="android.permission.WAKE_LOCK" />-->
+ 
+-    <uses-feature android:name="android.hardware.type.watch" />
++<!--    <uses-feature android:name="android.hardware.type.watch" />-->
+ 
+     <application
+         android:allowBackup="true"
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_7\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ .idea/misc.xml	(date 1603909807168)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\napply plugin: 'com.google.gms.google-services'\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.2\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.matchthetiles\"\r\n        minSdkVersion 23\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation fileTree(dir: \"libs\", include: [\"*.jar\"])\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'\r\n    implementation 'androidx.wear:wear:1.0.0'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n    compileOnly 'com.google.android.wearable:wearable:2.5.0'\r\n\r\n    // Google\r\n    implementation 'com.google.android.gms:play-services-auth:18.1.0'\r\n\r\n    // Firebase\r\n    implementation platform('com.google.firebase:firebase-bom:25.13.0')\r\n    implementation 'com.google.firebase:firebase-database'\r\n    implementation 'com.google.firebase:firebase-storage'\r\n    implementation 'com.google.firebase:firebase-auth'\r\n\r\n    // Firebase UI\r\n    implementation 'com.firebaseui:firebase-ui-database:6.3.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ app/build.gradle	(date 1603941751161)
+@@ -37,7 +37,7 @@
+     implementation 'com.google.android.gms:play-services-auth:18.1.0'
+ 
+     // Firebase
+-    implementation platform('com.google.firebase:firebase-bom:25.13.0')
++    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+     implementation 'com.google.firebase:firebase-database'
+     implementation 'com.google.firebase:firebase-storage'
+     implementation 'com.google.firebase:firebase-auth'
+Index: app/src/main/java/com/example/matchthetiles/Round1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.matchthetiles;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.constraintlayout.widget.ConstraintLayout;\r\nimport androidx.core.content.ContextCompat;\r\n\r\nimport android.animation.Animator;\r\nimport android.animation.AnimatorInflater;\r\nimport android.animation.AnimatorSet;\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.graphics.Color;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.os.SystemClock;\r\nimport android.provider.Telephony;\r\nimport android.view.View;\r\nimport android.view.animation.Animation;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\n\r\nimport java.util.concurrent.TimeUnit;\r\n\r\npublic class Round1 extends AppCompatActivity {\r\n\r\n    private ImageView iv1;\r\n    private ImageView iv2;\r\n    private ImageView iv3;\r\n    private ImageView iv4;\r\n    private ImageView iv5;\r\n    private ImageView iv6;\r\n\r\n    //keeps track of how many are flipped up currently\r\n    private int flippedUp;\r\n\r\n    //id of the two tiles flipped up to know if they match\r\n    //1 for cy, 2 for cycircle and 3 for statelogo\r\n    private int firstTileHidden;\r\n\r\n    //Resource ids of the tiles flipped\r\n    private ImageView firstTileResource;\r\n\r\n    private int themeid;\r\n\r\n    Handler handler = new Handler();\r\n\r\n    int time;\r\n\r\n    int score;\r\n\r\n    int myBestTime;\r\n\r\n    int globalBestTime;\r\n\r\n\r\n\r\n    @SuppressLint(\"ResourceType\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_round1);\r\n\r\n        handler.postDelayed(timer, 1000);\r\n        flippedUp = 0;\r\n        Intent intent = getIntent();\r\n        score = 0;\r\n\r\n        String theme = intent.getStringExtra(\"theme\");\r\n        iv1 = findViewById(R.id.imageView);\r\n        iv2 = findViewById(R.id.imageView2);\r\n        iv3 = findViewById(R.id.imageView3);\r\n        iv4 = findViewById(R.id.imageView4);\r\n        iv5 = findViewById(R.id.imageView5);\r\n        iv6 = findViewById(R.id.imageView6);\r\n\r\n        ConstraintLayout lay = findViewById(R.layout.activity_round1);\r\n        switch(theme) {\r\n            case \"winter\":\r\n                changeTheme(R.drawable.snowflaketile);\r\n                findViewById(R.id.round1Layout).setBackgroundColor(Color.GREEN);\r\n            break;\r\n            case \"fall\":\r\n                changeTheme(R.drawable.leaf);\r\n                findViewById(R.id.round1Layout).setBackgroundColor(Color.parseColor(\"#ffa500\"));\r\n                break;\r\n            case \"spring\":\r\n                changeTheme(R.drawable.spring);\r\n                findViewById(R.id.round1Layout).setBackgroundColor(Color.YELLOW);\r\n                break;\r\n            case \"summer\":\r\n                changeTheme(R.drawable.summer);\r\n                findViewById(R.id.round1Layout).setBackgroundColor(Color.BLUE);\r\n                break;\r\n        }\r\n\r\n        myBestTime = intent.getIntExtra(\"myBestTime\",0);\r\n\r\n        globalBestTime = intent.getIntExtra(\"globalBestTime\",0);\r\n\r\n        ((TextView) findViewById(R.id.textView2)).setText(\"Global Best Time: \"+globalBestTime);\r\n        ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n\r\n    }\r\n\r\n    Runnable timer = new Runnable() {\r\n        @Override\r\n        public void run() {\r\n\r\n            handler.postDelayed(timer, 1000);\r\n            TextView timeView = findViewById(R.id.textView);\r\n            time++;\r\n            timeView.setText(\"Time:\"+time);\r\n\r\n        }\r\n\r\n    };\r\n\r\n\r\n    public void changeTheme(int imageResource){\r\n        themeid = imageResource;\r\n        iv1.setImageResource(imageResource);\r\n        iv2.setImageResource(imageResource);\r\n        iv3.setImageResource(imageResource);\r\n        iv4.setImageResource(imageResource);\r\n        iv5.setImageResource(imageResource);\r\n        iv6.setImageResource(imageResource);\r\n\r\n    }\r\n\r\n\r\n    public void onClickTile1(View v) {\r\n\r\n        flippedUp++;\r\n        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);\r\n        set.setTarget(iv1);\r\n\r\n        set.addListener(new Animator.AnimatorListener() {\r\n            @Override\r\n            public void onAnimationStart(Animator animation) {\r\n                iv2.setClickable(false);\r\n                iv3.setClickable(false);\r\n                iv4.setClickable(false);\r\n                iv5.setClickable(false);\r\n                iv6.setClickable(false);\r\n                iv1.setImageResource(R.drawable.cy);\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationEnd(Animator animation) {\r\n                iv2.setClickable(true);\r\n                iv3.setClickable(true);\r\n                iv4.setClickable(true);\r\n                iv5.setClickable(true);\r\n                iv6.setClickable(true);\r\n                if(flippedUp == 1){\r\n                    firstTileResource = iv1;\r\n                    firstTileHidden = 1;\r\n                }\r\n\r\n                if(flippedUp == 2) {\r\n\r\n                    if(firstTileHidden != 1){\r\n                        firstTileResource.setImageResource(themeid);\r\n                        iv1.setImageResource(themeid);\r\n                    }\r\n                    else{\r\n                        score++;\r\n                        if (score == 3){\r\n                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);\r\n                            handler.removeCallbacks(timer);\r\n                            if(time < myBestTime){\r\n                                myBestTime = time;\r\n                                ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n                            }\r\n                            findViewById(R.id.next).setVisibility(View.VISIBLE);\r\n                        }\r\n                    }\r\n\r\n                    flippedUp = 0;\r\n\r\n                }\r\n\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationCancel(Animator animation) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationRepeat(Animator animation) {\r\n\r\n            }\r\n        });\r\n        set.start();\r\n\r\n\r\n    }\r\n\r\n    public void onClickTile2(View v) throws InterruptedException {\r\n\r\n        flippedUp++;\r\n\r\n        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);\r\n        set.setTarget(iv2);\r\n\r\n        set.addListener(new Animator.AnimatorListener() {\r\n            @Override\r\n            public void onAnimationStart(Animator animation) {\r\n                iv1.setClickable(false);\r\n                iv3.setClickable(false);\r\n                iv4.setClickable(false);\r\n                iv5.setClickable(false);\r\n                iv6.setClickable(false);\r\n                iv2.setImageResource(R.drawable.cycircle);\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationEnd(Animator animation) {\r\n                iv1.setClickable(true);\r\n                iv3.setClickable(true);\r\n                iv4.setClickable(true);\r\n                iv5.setClickable(true);\r\n                iv6.setClickable(true);\r\n                if(flippedUp == 1){\r\n\r\n                    firstTileResource = iv2;\r\n                    firstTileHidden = 2;\r\n                }\r\n\r\n                if(flippedUp == 2) {\r\n\r\n                    if(firstTileHidden != 2){\r\n                        firstTileResource.setImageResource(themeid);\r\n                        iv2.setImageResource(themeid);\r\n\r\n                    }\r\n                    else{\r\n                        score++;\r\n                        if (score == 3){\r\n                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);\r\n                            handler.removeCallbacks(timer);\r\n                            if(time < myBestTime){\r\n                                myBestTime = time;\r\n                                ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n                            }\r\n                            findViewById(R.id.next).setVisibility(View.VISIBLE);\r\n                        }\r\n                    }\r\n\r\n                    flippedUp = 0;\r\n\r\n                }\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationCancel(Animator animation) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationRepeat(Animator animation) {\r\n\r\n            }\r\n        });\r\n        set.start();\r\n\r\n\r\n\r\n    }\r\n\r\n    public void onClickTile3(View v) {\r\n\r\n        flippedUp++;\r\n\r\n\r\n        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);\r\n        set.setTarget(iv3);\r\n\r\n        set.addListener(new Animator.AnimatorListener() {\r\n            @Override\r\n            public void onAnimationStart(Animator animation) {\r\n                iv2.setClickable(false);\r\n                iv1.setClickable(false);\r\n                iv4.setClickable(false);\r\n                iv5.setClickable(false);\r\n                iv6.setClickable(false);\r\n                iv3.setImageResource(R.drawable.statelogo);\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationEnd(Animator animation) {\r\n                iv2.setClickable(true);\r\n                iv1.setClickable(true);\r\n                iv4.setClickable(true);\r\n                iv5.setClickable(true);\r\n                iv6.setClickable(true);\r\n                if(flippedUp == 1){\r\n\r\n                    firstTileResource = iv3;\r\n                    firstTileHidden = 3;\r\n                }\r\n\r\n                if(flippedUp == 2) {\r\n\r\n                    if(firstTileHidden != 3){\r\n                        firstTileResource.setImageResource(themeid);\r\n                        iv3.setImageResource(themeid);\r\n                    }\r\n                    else{\r\n                        score++;\r\n                        if (score == 3){\r\n                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);\r\n                            handler.removeCallbacks(timer);\r\n                            if(time < myBestTime){\r\n                                myBestTime = time;\r\n                                ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n                            }\r\n                            findViewById(R.id.next).setVisibility(View.VISIBLE);\r\n                        }\r\n\r\n                    }\r\n\r\n                    flippedUp = 0;\r\n\r\n                }\r\n\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationCancel(Animator animation) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationRepeat(Animator animation) {\r\n\r\n            }\r\n        });\r\n        set.start();\r\n\r\n\r\n    }\r\n\r\n    public void onClickTile4(View v) {\r\n\r\n        flippedUp++;\r\n\r\n        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);\r\n        set.setTarget(iv4);\r\n\r\n        set.addListener(new Animator.AnimatorListener() {\r\n            @Override\r\n            public void onAnimationStart(Animator animation) {\r\n                iv2.setClickable(false);\r\n                iv3.setClickable(false);\r\n                iv1.setClickable(false);\r\n                iv5.setClickable(false);\r\n                iv6.setClickable(false);\r\n                iv4.setImageResource(R.drawable.cy);\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationEnd(Animator animation) {\r\n                iv2.setClickable(true);\r\n                iv3.setClickable(true);\r\n                iv1.setClickable(true);\r\n                iv5.setClickable(true);\r\n                iv6.setClickable(true);\r\n                if(flippedUp == 1){\r\n\r\n                    firstTileResource = iv4;\r\n                    firstTileHidden = 1;\r\n                }\r\n\r\n                if(flippedUp == 2) {\r\n\r\n                    if(firstTileHidden != 1){\r\n                        firstTileResource.setImageResource(themeid);\r\n                        iv4.setImageResource(themeid);\r\n                    }\r\n                    else{\r\n                        score++;\r\n                        if (score == 3){\r\n                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);\r\n                            handler.removeCallbacks(timer);\r\n                            if(time < myBestTime){\r\n                                myBestTime = time;\r\n                                ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n                            }\r\n                            findViewById(R.id.next).setVisibility(View.VISIBLE);\r\n                        }\r\n                    }\r\n\r\n                    flippedUp = 0;\r\n\r\n                }\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationCancel(Animator animation) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationRepeat(Animator animation) {\r\n\r\n            }\r\n        });\r\n        set.start();\r\n\r\n\r\n    }\r\n\r\n    public void onClickTile5(View v) {\r\n\r\n        flippedUp++;\r\n\r\n        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);\r\n        set.setTarget(iv5);\r\n\r\n        set.addListener(new Animator.AnimatorListener() {\r\n            @Override\r\n            public void onAnimationStart(Animator animation) {\r\n                iv2.setClickable(false);\r\n                iv3.setClickable(false);\r\n                iv4.setClickable(false);\r\n                iv1.setClickable(false);\r\n                iv6.setClickable(false);\r\n                iv5.setImageResource(R.drawable.statelogo);\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationEnd(Animator animation) {\r\n                iv2.setClickable(true);\r\n                iv3.setClickable(true);\r\n                iv4.setClickable(true);\r\n                iv1.setClickable(true);\r\n                iv6.setClickable(true);\r\n                if(flippedUp == 1){\r\n\r\n                    firstTileResource = iv5;\r\n                    firstTileHidden = 3;\r\n                }\r\n\r\n                if(flippedUp == 2) {\r\n\r\n                    if(firstTileHidden != 3){\r\n                        firstTileResource.setImageResource(themeid);\r\n                        iv5.setImageResource(themeid);\r\n                    }\r\n                    else{\r\n                        score++;\r\n                        if (score == 3){\r\n                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);\r\n                            handler.removeCallbacks(timer);\r\n                            if(time < myBestTime){\r\n                                myBestTime = time;\r\n                                ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n\r\n                            }\r\n                            findViewById(R.id.next).setVisibility(View.VISIBLE);\r\n                        }\r\n                    }\r\n\r\n                    flippedUp = 0;\r\n\r\n                }\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationCancel(Animator animation) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationRepeat(Animator animation) {\r\n\r\n            }\r\n        });\r\n        set.start();\r\n\r\n\r\n    }\r\n\r\n    public void onClickTile6(View v) {\r\n\r\n        flippedUp++;\r\n\r\n        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);\r\n        set.setTarget(iv6);\r\n\r\n        set.addListener(new Animator.AnimatorListener() {\r\n            @Override\r\n            public void onAnimationStart(Animator animation) {\r\n                iv2.setClickable(false);\r\n                iv3.setClickable(false);\r\n                iv4.setClickable(false);\r\n                iv5.setClickable(false);\r\n                iv1.setClickable(false);\r\n                iv6.setImageResource(R.drawable.cycircle);\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationEnd(Animator animation) {\r\n\r\n                iv2.setClickable(true);\r\n                iv3.setClickable(true);\r\n                iv4.setClickable(true);\r\n                iv5.setClickable(true);\r\n                iv1.setClickable(true);\r\n\r\n                if(flippedUp == 1){\r\n\r\n                    firstTileResource = iv6;\r\n                    firstTileHidden = 2;\r\n                }\r\n\r\n                if(flippedUp == 2) {\r\n\r\n                    if(firstTileHidden != 2){\r\n                        firstTileResource.setImageResource(themeid);\r\n                        iv6.setImageResource(themeid);\r\n                    }\r\n                    else{\r\n                        score++;\r\n                        if (score == 3){\r\n                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);\r\n                            handler.removeCallbacks(timer);\r\n                            if(time < myBestTime){\r\n                                myBestTime = time;\r\n                                ((TextView) findViewById(R.id.textView3)).setText(\"My Best Time: \"+myBestTime);\r\n\r\n                            }\r\n                            findViewById(R.id.next).setVisibility(View.VISIBLE);\r\n                        }\r\n                    }\r\n\r\n                    flippedUp = 0;\r\n\r\n                }\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationCancel(Animator animation) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onAnimationRepeat(Animator animation) {\r\n\r\n            }\r\n        });\r\n        set.start();\r\n\r\n\r\n\r\n    }\r\n\r\n    public void mainMenu(View v){\r\n\r\n        Intent i = new Intent(this,MainActivity.class);\r\n        startActivity(i);\r\n    }\r\n\r\n    public void Next(View v){\r\n\r\n        //use this to go to next round\r\n        Intent i = new Intent(this,Round2.class);\r\n        startActivity(i);\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/matchthetiles/Round1.java	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ app/src/main/java/com/example/matchthetiles/Round1.java	(date 1603935900249)
+@@ -18,6 +18,10 @@
+ import android.view.animation.Animation;
+ import android.widget.ImageView;
+ import android.widget.TextView;
++import com.google.firebase.auth.FirebaseUser;
++import com.google.firebase.database.DataSnapshot;
++import com.google.firebase.database.DatabaseReference;
++import com.google.firebase.database.FirebaseDatabase;
+ 
+ import java.util.concurrent.TimeUnit;
+ 
+@@ -30,6 +34,8 @@
+     private ImageView iv5;
+     private ImageView iv6;
+ 
++    private  DatabaseReference mDatabase;
++
+     //keeps track of how many are flipped up currently
+     private int flippedUp;
+ 
+@@ -73,6 +79,8 @@
+         iv5 = findViewById(R.id.imageView5);
+         iv6 = findViewById(R.id.imageView6);
+ 
++        mDatabase = FirebaseDatabase.getInstance().getReference();
++
+         ConstraintLayout lay = findViewById(R.layout.activity_round1);
+         switch(theme) {
+             case "winter":
+@@ -570,6 +578,7 @@
+     }
+ 
+     public void Next(View v){
++        //Upload time to firebase
+ 
+         //use this to go to next round
+         Intent i = new Intent(this,Round2.class);
+Index: app/src/main/java/com/example/matchthetiles/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.matchthetiles;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\n\r\nimport com.firebase.ui.database.FirebaseRecyclerOptions;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport android.graphics.Color;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    private String mUsername;\r\n    private String mPhotoUrl;\r\n    public static final String ANONYMOUS = \"anonymous\";\r\n\r\n\r\n    // Firebase instance variables\r\n    private FirebaseAuth mFirebaseAuth;\r\n    private FirebaseUser mFirebaseUser;\r\n    private DatabaseReference mFirebaseDatabaseReference;\r\n    private GoogleSignInClient mSignInClient;\r\n  \r\n    //theme\r\n \r\n    private String theme;\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n        // Set default username is anonymous.\r\n//        mUsername = ANONYMOUS;\r\n//\r\n//        // Initialize Firebase Auth\r\n//        mFirebaseAuth = FirebaseAuth.getInstance();\r\n//        mFirebaseUser = mFirebaseAuth.getCurrentUser();\r\n//        if (mFirebaseUser == null) {\r\n//            // Not signed in, launch the Sign In activity\r\n//            startActivity(new Intent(this, SignInActivity.class));\r\n//            finish();\r\n//            return;\r\n//        } else {\r\n//            mUsername = mFirebaseUser.getDisplayName();\r\n//            if (mFirebaseUser.getPhotoUrl() != null) {\r\n//                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();\r\n//            }\r\n//        }\r\n//\r\n//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)\r\n//                .requestIdToken(getString(R.string.default_web_client_id))\r\n//                .requestEmail()\r\n//                .build();\r\n//        mSignInClient = GoogleSignIn.getClient(this, gso);\r\n\r\n//        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();\r\n//        SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {\r\n//            @Override\r\n//            public FriendlyMessage parseSnapshot(DataSnapshot dataSnapshot) {\r\n//                FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);\r\n//                if (friendlyMessage != null) {\r\n//                    friendlyMessage.setId(dataSnapshot.getKey());\r\n//                }\r\n//                return friendlyMessage;\r\n//            }\r\n//        };\r\n//\r\n//        DatabaseReference messagesRef = mFirebaseDatabaseReference.child(MESSAGES_CHILD);\r\n//        FirebaseRecyclerOptions<FriendlyMessage> options =\r\n//                new FirebaseRecyclerOptions.Builder<FriendlyMessage>()\r\n//                        .setQuery(messagesRef, parser)\r\n//                        .build();\r\n//        mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {\r\n    }\r\n\r\n//    @Override\r\n//    public boolean onOptionsItemSelected(MenuItem item) {\r\n//        switch (item.getItemId()) {\r\n//            case R.id.sign_out_menu:\r\n//                mFirebaseAuth.signOut();\r\n//                mSignInClient.signOut();\r\n//\r\n//                mUsername = ANONYMOUS;\r\n//                startActivity(new Intent(this, SignInActivity.class));\r\n//                finish();\r\n//                return true;\r\n//            default:\r\n//                return super.onOptionsItemSelected(item);\r\n//        }\r\n//    }\r\n\r\n    public void start(View v){\r\n        Intent intent = new Intent(this, Round1.class);\r\n\r\n        intent.putExtra(\"theme\", theme);\r\n        intent.putExtra(\"myBestTime\", 15);\r\n        intent.putExtra(\"globalBestTime\", 9);\r\n        startActivity(intent);\r\n    }\r\n\r\n    public void springTheme(View v){\r\n\r\n        theme = \"spring\";\r\n        findViewById(R.id.homeScreen).setBackgroundColor(Color.YELLOW);\r\n\r\n    }\r\n\r\n    public void fallTheme(View v){\r\n        theme = \"fall\";\r\n        findViewById(R.id.homeScreen).setBackgroundColor(Color.parseColor(\"#ffa500\"));\r\n    }\r\n\r\n    public void winterTheme(View v){\r\n        theme = \"winter\";\r\n        findViewById(R.id.homeScreen).setBackgroundColor(Color.GREEN);\r\n\r\n    }\r\n\r\n    public void summerTheme(View v){\r\n\r\n        theme = \"summer\";\r\n        findViewById(R.id.homeScreen).setBackgroundColor(Color.BLUE);\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/matchthetiles/MainActivity.java	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ app/src/main/java/com/example/matchthetiles/MainActivity.java	(date 1603940064344)
+@@ -42,65 +42,25 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+-        // Set default username is anonymous.
+-//        mUsername = ANONYMOUS;
+-//
+-//        // Initialize Firebase Auth
+-//        mFirebaseAuth = FirebaseAuth.getInstance();
+-//        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+-//        if (mFirebaseUser == null) {
+-//            // Not signed in, launch the Sign In activity
+-//            startActivity(new Intent(this, SignInActivity.class));
+-//            finish();
+-//            return;
+-//        } else {
+-//            mUsername = mFirebaseUser.getDisplayName();
+-//            if (mFirebaseUser.getPhotoUrl() != null) {
+-//                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+-//            }
+-//        }
+-//
+-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+-//                .requestIdToken(getString(R.string.default_web_client_id))
+-//                .requestEmail()
+-//                .build();
+-//        mSignInClient = GoogleSignIn.getClient(this, gso);
++         //Set default username is anonymous.
++        mUsername = ANONYMOUS;
+ 
+-//        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+-//        SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {
+-//            @Override
+-//            public FriendlyMessage parseSnapshot(DataSnapshot dataSnapshot) {
+-//                FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
+-//                if (friendlyMessage != null) {
+-//                    friendlyMessage.setId(dataSnapshot.getKey());
+-//                }
+-//                return friendlyMessage;
+-//            }
+-//        };
+-//
+-//        DatabaseReference messagesRef = mFirebaseDatabaseReference.child(MESSAGES_CHILD);
+-//        FirebaseRecyclerOptions<FriendlyMessage> options =
+-//                new FirebaseRecyclerOptions.Builder<FriendlyMessage>()
+-//                        .setQuery(messagesRef, parser)
+-//                        .build();
+-//        mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
++        // Initialize Firebase Auth
++        mFirebaseAuth = FirebaseAuth.getInstance();
++        mFirebaseUser = mFirebaseAuth.getCurrentUser();
++        if (mFirebaseUser == null) {
++            // Not signed in, launch the Sign In activity
++            startActivity(new Intent(this, SignInActivity.class));
++            finish();
++            return;
++        } else {
++            mUsername = mFirebaseUser.getDisplayName();
++            if (mFirebaseUser.getPhotoUrl() != null) {
++                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
++            }
++        }
+     }
+ 
+-//    @Override
+-//    public boolean onOptionsItemSelected(MenuItem item) {
+-//        switch (item.getItemId()) {
+-//            case R.id.sign_out_menu:
+-//                mFirebaseAuth.signOut();
+-//                mSignInClient.signOut();
+-//
+-//                mUsername = ANONYMOUS;
+-//                startActivity(new Intent(this, SignInActivity.class));
+-//                finish();
+-//                return true;
+-//            default:
+-//                return super.onOptionsItemSelected(item);
+-//        }
+-//    }
+ 
+     public void start(View v){
+         Intent intent = new Intent(this, Round1.class);
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"1.8\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ .idea/gradle.xml	(date 1603909807198)
+@@ -15,6 +15,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath \"com.android.tools.build:gradle:4.0.1\"\r\n        classpath 'com.google.gms:google-services:4.3.4'\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ build.gradle	(date 1603934979655)
+@@ -5,7 +5,7 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath "com.android.tools.build:gradle:4.0.1"
++        classpath 'com.android.tools.build:gradle:4.1.0'
+         classpath 'com.google.gms:google-services:4.3.4'
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+Index: app/src/main/java/com/example/matchthetiles/SignInActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.matchthetiles;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Toast;\r\n\r\nimport com.example.matchthetiles.MainActivity;\r\nimport com.example.matchthetiles.R;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInAccount;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions;\r\nimport com.google.android.gms.common.SignInButton;\r\nimport com.google.android.gms.common.api.ApiException;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthCredential;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.GoogleAuthProvider;\r\n\r\npublic class SignInActivity extends AppCompatActivity implements View.OnClickListener {\r\n\r\n    private static final String TAG = \"SignInActivity\";\r\n    private static final int RC_SIGN_IN = 9001;\r\n\r\n    private SignInButton mSignInButton;\r\n\r\n    private GoogleSignInClient mSignInClient;\r\n\r\n    // Firebase instance variables\r\n    private FirebaseAuth mFirebaseAuth;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_sign_in);\r\n\r\n        // Assign fields\r\n        mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);\r\n\r\n        // Set click listeners\r\n        mSignInButton.setOnClickListener(this);\r\n\r\n        // Configure Google Sign In\r\n        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)\r\n                .requestIdToken(getString(R.string.default_web_client_id))\r\n                .requestEmail()\r\n                .build();\r\n        mSignInClient = GoogleSignIn.getClient(this, gso);\r\n\r\n        // Initialize FirebaseAuth\r\n        mFirebaseAuth = FirebaseAuth.getInstance();\r\n    }\r\n\r\n    @Override\r\n    public void onClick(View v) {\r\n        switch (v.getId()) {\r\n            case R.id.sign_in_button:\r\n                signIn();\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void signIn() {\r\n        Intent signInIntent = mSignInClient.getSignInIntent();\r\n        startActivityForResult(signInIntent, RC_SIGN_IN);\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n\r\n        // Result returned from launching the Intent in signIn()\r\n        if (requestCode == RC_SIGN_IN) {\r\n            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);\r\n            try {\r\n                // Google Sign In was successful, authenticate with Firebase\r\n                GoogleSignInAccount account = task.getResult(ApiException.class);\r\n                firebaseAuthWithGoogle(account);\r\n            } catch (ApiException e) {\r\n                // Google Sign In failed, update UI appropriately\r\n                Log.w(TAG, \"Google sign in failed\", e);\r\n            }\r\n        }\r\n    }\r\n\r\n    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {\r\n        Log.d(TAG, \"firebaseAuthWithGoogle:\" + acct.getId());\r\n        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);\r\n        mFirebaseAuth.signInWithCredential(credential)\r\n                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {\r\n                    @Override\r\n                    public void onComplete(@NonNull Task<AuthResult> task) {\r\n                        Log.d(TAG, \"signInWithCredential:onComplete:\" + task.isSuccessful());\r\n\r\n                        // If sign in fails, display a message to the user. If sign in succeeds\r\n                        // the auth state listener will be notified and logic to handle the\r\n                        // signed in user can be handled in the listener.\r\n                        if (!task.isSuccessful()) {\r\n                            Log.w(TAG, \"signInWithCredential\", task.getException());\r\n                            Toast.makeText(SignInActivity.this, \"Authentication failed.\",\r\n                                    Toast.LENGTH_SHORT).show();\r\n                        } else {\r\n                            Intent i = new Intent(SignInActivity.this,MainActivity.class);\r\n                            startActivity(i);\r\n                            finish();\r\n                        }\r\n                    }\r\n                });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/matchthetiles/SignInActivity.java	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ app/src/main/java/com/example/matchthetiles/SignInActivity.java	(date 1603940889892)
+@@ -1,3 +1,18 @@
++/**
++ * Copyright Google Inc. All Rights Reserved.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ * http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
+ package com.example.matchthetiles;
+ 
+ import android.content.Intent;
+@@ -8,8 +23,6 @@
+ import android.view.View;
+ import android.widget.Toast;
+ 
+-import com.example.matchthetiles.MainActivity;
+-import com.example.matchthetiles.R;
+ import com.google.android.gms.auth.api.signin.GoogleSignIn;
+ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+@@ -69,7 +82,6 @@
+     private void signIn() {
+         Intent signInIntent = mSignInClient.getSignInIntent();
+         startActivityForResult(signInIntent, RC_SIGN_IN);
+-
+     }
+ 
+     @Override
+@@ -107,11 +119,10 @@
+                             Toast.makeText(SignInActivity.this, "Authentication failed.",
+                                     Toast.LENGTH_SHORT).show();
+                         } else {
+-                            Intent i = new Intent(SignInActivity.this,MainActivity.class);
+-                            startActivity(i);
++                            startActivity(new Intent(SignInActivity.this, Round1.class));
+                             finish();
+                         }
+                     }
+                 });
+     }
+-}
+\ No newline at end of file
++}
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"project_info\": {\r\n    \"project_number\": \"322519277329\",\r\n    \"firebase_url\": \"https://match-the-tiles.firebaseio.com\",\r\n    \"project_id\": \"match-the-tiles\",\r\n    \"storage_bucket\": \"match-the-tiles.appspot.com\"\r\n  },\r\n  \"client\": [\r\n    {\r\n      \"client_info\": {\r\n        \"mobilesdk_app_id\": \"1:322519277329:android:0133c8b609e40e287b36b0\",\r\n        \"android_client_info\": {\r\n          \"package_name\": \"com.example.matchthetiles\"\r\n        }\r\n      },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\": \"322519277329-iu6967qshh94l9fuc899434j6ebjc6jn.apps.googleusercontent.com\",\r\n          \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\": \"com.example.matchthetiles\",\r\n            \"certificate_hash\": \"4ed6a7dbc87cf988a1c3a1643362ab866bc9a622\"\r\n          }\r\n        },\r\n        {\r\n          \"client_id\": \"322519277329-doiml13h5iga8il2si689ut99b3p4hn3.apps.googleusercontent.com\",\r\n          \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n        {\r\n          \"current_key\": \"AIzaSyB8nDFDIlYglEqOXvBunTgewEvWqL0697A\"\r\n        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\": {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n              \"client_id\": \"322519277329-doiml13h5iga8il2si689ut99b3p4hn3.apps.googleusercontent.com\",\r\n              \"client_type\": 3\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"configuration_version\": \"1\"\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/google-services.json	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ app/google-services.json	(date 1603943853509)
+@@ -1,42 +1,42 @@
+ {
+   "project_info": {
+-    "project_number": "322519277329",
+-    "firebase_url": "https://match-the-tiles.firebaseio.com",
+-    "project_id": "match-the-tiles",
+-    "storage_bucket": "match-the-tiles.appspot.com"
++    "project_number": "450320988569",
++    "firebase_url": "https://matching-5e6da.firebaseio.com",
++    "project_id": "matching-5e6da",
++    "storage_bucket": "matching-5e6da.appspot.com"
+   },
+   "client": [
+     {
+       "client_info": {
+-        "mobilesdk_app_id": "1:322519277329:android:0133c8b609e40e287b36b0",
++        "mobilesdk_app_id": "1:450320988569:android:344c8130258a0f28747b08",
+         "android_client_info": {
+           "package_name": "com.example.matchthetiles"
+         }
+       },
+       "oauth_client": [
+         {
+-          "client_id": "322519277329-iu6967qshh94l9fuc899434j6ebjc6jn.apps.googleusercontent.com",
++          "client_id": "450320988569-04mo1d302f1kn335bfo6tl33arots78b.apps.googleusercontent.com",
+           "client_type": 1,
+           "android_info": {
+             "package_name": "com.example.matchthetiles",
+-            "certificate_hash": "4ed6a7dbc87cf988a1c3a1643362ab866bc9a622"
++            "certificate_hash": "65930d8498aaf6158855f99ee790751ec00e8c04"
+           }
+         },
+         {
+-          "client_id": "322519277329-doiml13h5iga8il2si689ut99b3p4hn3.apps.googleusercontent.com",
++          "client_id": "450320988569-don69cfnj7indt2r69j9fiaksvajul1u.apps.googleusercontent.com",
+           "client_type": 3
+         }
+       ],
+       "api_key": [
+         {
+-          "current_key": "AIzaSyB8nDFDIlYglEqOXvBunTgewEvWqL0697A"
++          "current_key": "AIzaSyD6fbRkVDUWENu6obEMH3g2HPfN4UwD7Bw"
+         }
+       ],
+       "services": {
+         "appinvite_service": {
+           "other_platform_oauth_client": [
+             {
+-              "client_id": "322519277329-doiml13h5iga8il2si689ut99b3p4hn3.apps.googleusercontent.com",
++              "client_id": "450320988569-don69cfnj7indt2r69j9fiaksvajul1u.apps.googleusercontent.com",
+               "client_type": 3
+             }
+           ]
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Tue Oct 13 15:25:52 CDT 2020\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-6.1.1-all.zip\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision 6abca793282ecfd74fb42a98ed73df6c99ec4582)
++++ gradle/wrapper/gradle-wrapper.properties	(date 1603934979682)
+@@ -1,6 +1,6 @@
+-#Tue Oct 13 15:25:52 CDT 2020
++#Wed Oct 28 20:29:39 CDT 2020
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip
