@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,20 +47,21 @@ public class MainActivity extends AppCompatActivity {
         Intent i = getIntent();
         theme = i.getStringExtra("theme");
 
+
         if(theme != null){
 
             switch(theme) {
                 case "winter":
-                    findViewById(R.id.homeScreen).setBackgroundColor(Color.GREEN);
+                    findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.winterbackground);
                     break;
                 case "fall":
-                    findViewById(R.id.homeScreen).setBackgroundColor(Color.parseColor("#ffa500"));
+                    findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.fallbackground);
                     break;
                 case "spring":
-                    findViewById(R.id.homeScreen).setBackgroundColor(Color.YELLOW);
+                    findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.springbackground);
                     break;
                 case "summer":
-                    findViewById(R.id.homeScreen).setBackgroundColor(Color.BLUE);
+                    findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.summerbackground);
                     break;
             }
 
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("theme", theme);
         intent.putExtra("myBestTime", 15);
         intent.putExtra("globalBestTime", 9);
+        intent.putExtra("username",mUsername);
         startActivity(intent);
     }
 
@@ -115,25 +118,25 @@ public class MainActivity extends AppCompatActivity {
     public void springTheme(View v){
 
         theme = "spring";
-        findViewById(R.id.homeScreen).setBackgroundColor(Color.YELLOW);
+        findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.springbackground);
 
     }
 
     public void fallTheme(View v){
         theme = "fall";
-        findViewById(R.id.homeScreen).setBackgroundColor(Color.parseColor("#ffa500"));
+        findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.fallbackground);
     }
 
     public void winterTheme(View v){
         theme = "winter";
-        findViewById(R.id.homeScreen).setBackgroundColor(Color.GREEN);
+        findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.winterbackground);
 
     }
 
     public void summerTheme(View v){
 
         theme = "summer";
-        findViewById(R.id.homeScreen).setBackgroundColor(Color.BLUE);
+        findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.summerbackground);
 
 
     }

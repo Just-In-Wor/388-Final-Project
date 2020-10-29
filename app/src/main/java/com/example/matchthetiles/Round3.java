@@ -46,19 +46,19 @@ public class Round3 extends AppCompatActivity {
         switch(theme) {
             case "winter":
                 changeTheme(R.drawable.snowflaketile);
-                findViewById(R.id.round3Layout).setBackgroundColor(Color.GREEN);
+                findViewById(R.id.round3Layout).setBackgroundResource(R.drawable.winterbackground);
                 break;
             case "fall":
                 changeTheme(R.drawable.leaf);
-                findViewById(R.id.round3Layout).setBackgroundColor(Color.parseColor("#ffa500"));
+                findViewById(R.id.round3Layout).setBackgroundResource(R.drawable.fallbackground);
                 break;
             case "spring":
                 changeTheme(R.drawable.spring);
-                findViewById(R.id.round3Layout).setBackgroundColor(Color.YELLOW);
+                findViewById(R.id.round3Layout).setBackgroundResource(R.drawable.springbackground);
                 break;
             case "summer":
                 changeTheme(R.drawable.summer);
-                findViewById(R.id.round3Layout).setBackgroundColor(Color.BLUE);
+                findViewById(R.id.round3Layout).setBackgroundResource(R.drawable.summerbackground);
                 break;
         }
     }

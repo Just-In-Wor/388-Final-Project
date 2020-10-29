@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MyHighScores extends AppCompatActivity {
 
@@ -19,20 +20,22 @@ public class MyHighScores extends AppCompatActivity {
         Intent intent = getIntent();
         score = 0;
         this.theme = intent.getStringExtra("theme");
+        String username = intent.getStringExtra("username");
+        ((TextView)findViewById(R.id.username)).setText(username);
 
 
         switch(theme) {
             case "winter":
-                findViewById(R.id.myHighScoresLayout).setBackgroundColor(Color.GREEN);
+                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.winterbackground);
                 break;
             case "fall":
-                findViewById(R.id.myHighScoresLayout).setBackgroundColor(Color.parseColor("#ffa500"));
+                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.fallbackground);
                 break;
             case "spring":
-                findViewById(R.id.myHighScoresLayout).setBackgroundColor(Color.YELLOW);
+                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.springbackground);
                 break;
             case "summer":
-                findViewById(R.id.myHighScoresLayout).setBackgroundColor(Color.BLUE);
+                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.summerbackground);
                 break;
         }
     }

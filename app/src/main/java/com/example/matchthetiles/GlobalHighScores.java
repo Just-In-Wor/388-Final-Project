@@ -23,16 +23,16 @@ public class GlobalHighScores extends AppCompatActivity {
 
         switch(theme) {
             case "winter":
-                findViewById(R.id.globalHighScoresLayout).setBackgroundColor(Color.GREEN);
+                findViewById(R.id.globalHighScoresLayout).setBackgroundResource(R.drawable.winterbackground);
                 break;
             case "fall":
-                findViewById(R.id.globalHighScoresLayout).setBackgroundColor(Color.parseColor("#ffa500"));
+                findViewById(R.id.globalHighScoresLayout).setBackgroundResource(R.drawable.fallbackground);
                 break;
             case "spring":
-                findViewById(R.id.globalHighScoresLayout).setBackgroundColor(Color.YELLOW);
+                findViewById(R.id.globalHighScoresLayout).setBackgroundResource(R.drawable.springbackground);
                 break;
             case "summer":
-                findViewById(R.id.globalHighScoresLayout).setBackgroundColor(Color.BLUE);
+                findViewById(R.id.globalHighScoresLayout).setBackgroundResource(R.drawable.summerbackground);
                 break;
         }
     }
