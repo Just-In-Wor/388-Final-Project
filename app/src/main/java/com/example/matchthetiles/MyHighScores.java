@@ -1,6 +1,7 @@
 package com.example.matchthetiles;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -234,18 +235,35 @@ public class MyHighScores extends AppCompatActivity {
 
         }
 
+        ConstraintLayout myHighScores = findViewById(R.id.myHighScoresLayout);
         switch(theme) {
             case "winter":
                 findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.winterbackground);
+
+                for(int i = 0; i < myHighScores.getChildCount(); i++){
+                    ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.BLUE);
+                }
                 break;
             case "fall":
                 findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.fallbackground);
+                for(int i = 0; i < myHighScores.getChildCount(); i++){
+                    ((TextView)myHighScores.getChildAt(i)).setBackgroundResource(R.color.ORANGE);
+                    ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                }
                 break;
             case "spring":
                 findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.springbackground);
+                for(int i = 0; i < myHighScores.getChildCount(); i++){
+                    ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.YELLOW);
+                    ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                }
                 break;
             case "summer":
                 findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.summerbackground);
+                for(int i = 0; i < myHighScores.getChildCount(); i++){
+                    ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.GREEN);
+                    ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                }
                 break;
         }
     }
