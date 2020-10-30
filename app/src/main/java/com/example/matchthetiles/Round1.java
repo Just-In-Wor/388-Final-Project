@@ -142,6 +142,9 @@ public class Round1 extends AppCompatActivity {
                 iv5.setClickable(false);
                 iv6.setClickable(false);
 
+                if(firstTileHidden != 1 && flippedUp == 2) {
+                    iv1.setImageResource(R.drawable.cy);
+                }
             }
 
             @Override
@@ -213,6 +216,9 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv6.setClickable(false);
+                if(firstTileHidden != 2 && flippedUp == 2) {
+                    iv2.setImageResource(R.drawable.cycircle);
+                }
 
             }
 
@@ -288,6 +294,10 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv6.setClickable(false);
+                if(firstTileHidden != 3 && flippedUp == 2) {
+                    iv3.setImageResource(R.drawable.statelogo);
+                }
+
 
             }
 
@@ -363,6 +373,9 @@ public class Round1 extends AppCompatActivity {
                 iv5.setClickable(false);
                 iv6.setClickable(false);
 
+                if(firstTileHidden != 1 && flippedUp == 2) {
+                    iv4.setImageResource(R.drawable.cy);
+                }
             }
 
             @Override
@@ -435,6 +448,9 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv1.setClickable(false);
                 iv6.setClickable(false);
+                if(firstTileHidden != 3 && flippedUp == 2) {
+                    iv5.setImageResource(R.drawable.statelogo);
+                }
 
             }
 
@@ -509,6 +525,9 @@ public class Round1 extends AppCompatActivity {
                 iv4.setClickable(false);
                 iv5.setClickable(false);
                 iv1.setClickable(false);
+                if(firstTileHidden != 2 && flippedUp == 2) {
+                    iv6.setImageResource(R.drawable.cycircle);
+                }
 
             }
 
