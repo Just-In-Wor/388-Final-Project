@@ -23,6 +23,8 @@ public class Round2 extends AppCompatActivity {
     private ImageView iv4;
     private ImageView iv5;
     private ImageView iv6;
+    private ImageView iv7;
+    private ImageView iv8;
 
     //keeps track of how many are flipped up currently
     private int flippedUp;
@@ -63,6 +65,9 @@ public class Round2 extends AppCompatActivity {
         iv4 = findViewById(R.id.imageView4);
         iv5 = findViewById(R.id.imageView5);
         iv6 = findViewById(R.id.imageView6);
+        iv7 = findViewById(R.id.imageView7);
+        iv8 = findViewById(R.id.imageView8);
+
 
         switch(theme) {
             case "winter":
@@ -114,6 +119,8 @@ public class Round2 extends AppCompatActivity {
         iv4.setImageResource(imageResource);
         iv5.setImageResource(imageResource);
         iv6.setImageResource(imageResource);
+        iv7.setImageResource(imageResource);
+        iv8.setImageResource(imageResource);
 
     }
 
@@ -159,7 +166,7 @@ public class Round2 extends AppCompatActivity {
                     }
                     else{
                         score++;
-                        if (score == 3){
+                        if (score == 4){
                             findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
                             handler.removeCallbacks(timer);
                             if(time < myBestTime){
@@ -236,7 +243,7 @@ public class Round2 extends AppCompatActivity {
                     }
                     else{
                         score++;
-                        if (score == 3){
+                        if (score == 4){
                             findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
                             handler.removeCallbacks(timer);
                             if(time < myBestTime){
@@ -314,7 +321,7 @@ public class Round2 extends AppCompatActivity {
                     }
                     else{
                         score++;
-                        if (score == 3){
+                        if (score == 4){
                             findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
                             handler.removeCallbacks(timer);
                             if(time < myBestTime){
@@ -391,7 +398,7 @@ public class Round2 extends AppCompatActivity {
                     }
                     else{
                         score++;
-                        if (score == 3){
+                        if (score == 4){
                             findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
                             handler.removeCallbacks(timer);
                             if(time < myBestTime){
@@ -467,7 +474,7 @@ public class Round2 extends AppCompatActivity {
                     }
                     else{
                         score++;
-                        if (score == 3){
+                        if (score == 4){
                             findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
                             handler.removeCallbacks(timer);
                             if(time < myBestTime){
@@ -545,7 +552,88 @@ public class Round2 extends AppCompatActivity {
                     }
                     else{
                         score++;
-                        if (score == 3){
+                        if (score == 4){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+    }
+
+
+    public void onClickTile7(View v) {
+
+        flippedUp++;
+
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv7);
+
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+                iv2.setClickable(false);
+                iv3.setClickable(false);
+                iv4.setClickable(false);
+                iv1.setClickable(false);
+                iv5.setClickable(false);
+                iv6.setClickable(false);
+                iv8.setClickable(false);
+                if(firstTileHidden != 4 && flippedUp == 2) {
+                    iv7.setImageResource(R.drawable.retro);
+                }
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv7.setImageResource(R.drawable.retro);
+                iv2.setClickable(true);
+                iv3.setClickable(true);
+                iv4.setClickable(true);
+                iv5.setClickable(true);
+                iv1.setClickable(true);
+                iv6.setClickable(true);
+                iv8.setClickable(true);
+                if(flippedUp == 1){
+
+                    firstTileResource = iv7;
+                    firstTileHidden = 4;
+                }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 4){
+                        firstTileResource.setImageResource(themeid);
+                        iv7.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 4){
                             findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
                             handler.removeCallbacks(timer);
                             if(time < myBestTime){
@@ -576,9 +664,88 @@ public class Round2 extends AppCompatActivity {
         set.start();
 
 
-
     }
 
+    public void onClickTile8(View v) {
+
+        flippedUp++;
+
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.flip);
+        set.setTarget(iv8);
+
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+                iv2.setClickable(false);
+                iv3.setClickable(false);
+                iv4.setClickable(false);
+                iv5.setClickable(false);
+                iv1.setClickable(false);
+                iv7.setClickable(false);
+                iv6.setClickable(false);
+                if(firstTileHidden != 4 && flippedUp == 2) {
+                    iv8.setImageResource(R.drawable.retro);
+                }
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                iv8.setImageResource(R.drawable.retro);
+                iv2.setClickable(true);
+                iv3.setClickable(true);
+                iv4.setClickable(true);
+                iv5.setClickable(true);
+                iv1.setClickable(true);
+                iv7.setClickable(true);
+                iv6.setClickable(true);
+
+                if(flippedUp == 1){
+
+                    firstTileResource = iv8;
+                    firstTileHidden = 4;
+                }
+
+                if(flippedUp == 2) {
+
+                    if(firstTileHidden != 4){
+                        firstTileResource.setImageResource(themeid);
+                        iv8.setImageResource(themeid);
+                    }
+                    else{
+                        score++;
+                        if (score == 4){
+                            findViewById(R.id.winTextView).setVisibility(View.VISIBLE);
+                            handler.removeCallbacks(timer);
+                            if(time < myBestTime){
+                                myBestTime = time;
+                                ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+
+                            }
+                            findViewById(R.id.next).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    flippedUp = 0;
+
+                }
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
+
+    }
     public void mainMenu(View v){
 
         //use this to go to next round
