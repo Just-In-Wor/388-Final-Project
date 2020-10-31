@@ -7,28 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MyHighScores">
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="140dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="Round 5"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="140dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="Round 4"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
     <Button
         android:id="@+id/mainMenu"
         android:layout_width="wrap_content"
@@ -73,129 +51,19 @@
         android:id="@+id/score1Round1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="120dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
-
-
-    <TextView
-        android:id="@+id/score5Round1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score4Round1" />
-
-    <TextView
-        android:id="@+id/score4Round1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score3Round1" />
-
-    <TextView
-        android:id="@+id/score3Round1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="68dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score2Round1" />
-
-    <TextView
-        android:id="@+id/score2Round1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="56dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score1Round1" />
-
-    <TextView
-        android:id="@+id/score1Round2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="120dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score1Round1"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-
-    <TextView
-        android:id="@+id/score5Round2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score5Round1"
-        app:layout_constraintTop_toBottomOf="@+id/score4Round2" />
-
-    <TextView
-        android:id="@+id/score4Round2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score4Round1"
-        app:layout_constraintTop_toBottomOf="@+id/score3Round2" />
-
-    <TextView
-        android:id="@+id/score3Round2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="64dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score3Round1"
-        app:layout_constraintTop_toBottomOf="@+id/score2Round2" />
-
-    <TextView
-        android:id="@+id/score2Round2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score2Round1"
-        app:layout_constraintTop_toBottomOf="@+id/score1Round2" />
 
     <TextView
         android:id="@+id/score1Round3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="120dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
@@ -203,13 +71,70 @@
         app:layout_constraintStart_toEndOf="@+id/score1Round2"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="140dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="Round 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/score1Round2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="120dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/score1Round1"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <TextView
+        android:id="@+id/score2Round2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/score2Round1"
+        app:layout_constraintTop_toBottomOf="@+id/score1Round2" />
+
+    <TextView
+        android:id="@+id/score2Round1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="52dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score1Round1" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="140dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="Round 2"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/score5Round3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
@@ -220,8 +145,8 @@
         android:id="@+id/score4Round3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
@@ -232,8 +157,8 @@
         android:id="@+id/score3Round3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
@@ -241,11 +166,70 @@
         app:layout_constraintTop_toBottomOf="@+id/score2Round3" />
 
     <TextView
+        android:id="@+id/score3Round2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/score3Round1"
+        app:layout_constraintTop_toBottomOf="@+id/score2Round2" />
+
+    <TextView
+        android:id="@+id/score4Round2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/score4Round1"
+        app:layout_constraintTop_toBottomOf="@+id/score3Round2" />
+
+    <TextView
+        android:id="@+id/score5Round2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/score5Round1"
+        app:layout_constraintTop_toBottomOf="@+id/score4Round2" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="140dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="Round 3"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/score3Round1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="72dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score2Round1" />
+
+    <TextView
         android:id="@+id/score2Round3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
@@ -253,158 +237,28 @@
         app:layout_constraintTop_toBottomOf="@+id/score1Round3" />
 
     <TextView
-        android:id="@+id/score1Round4"
+        android:id="@+id/score4Round1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="120dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score1Round3"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-
-    <TextView
-        android:id="@+id/score5Round4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score5Round3"
-        app:layout_constraintTop_toBottomOf="@+id/score4Round4" />
-
-    <TextView
-        android:id="@+id/score4Round4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score4Round3"
-        app:layout_constraintTop_toBottomOf="@+id/score3Round4" />
-
-    <TextView
-        android:id="@+id/score3Round4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="64dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score3Round3"
-        app:layout_constraintTop_toBottomOf="@+id/score2Round4" />
-
-    <TextView
-        android:id="@+id/score2Round4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score2Round3"
-        app:layout_constraintTop_toBottomOf="@+id/score1Round4" />
-
-    <TextView
-        android:id="@+id/score1Round5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="120dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score1Round4"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-    <TextView
-        android:id="@+id/score5Round5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="44dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score5Round4"
-        app:layout_constraintTop_toBottomOf="@+id/score4Round5" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score3Round1" />
 
     <TextView
-        android:id="@+id/score4Round5"
+        android:id="@+id/score5Round1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="52dp"
         android:background="@color/design_default_color_primary_dark"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score4Round4"
-        app:layout_constraintTop_toBottomOf="@+id/score3Round5" />
-
-    <TextView
-        android:id="@+id/score3Round5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="64dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score3Round4"
-        app:layout_constraintTop_toBottomOf="@+id/score2Round5" />
-
-    <TextView
-        android:id="@+id/score2Round5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/score2Round4"
-        app:layout_constraintTop_toBottomOf="@+id/score1Round5" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="140dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="Round 2"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="140dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="Round 2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="140dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:text="Round 3"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/score4Round1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

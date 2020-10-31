@@ -46,11 +46,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Integer> scoresForUserRound1;
     private ArrayList<Integer> scoresForUserRound2;
     private ArrayList<Integer> scoresForUserRound3;
-    private ArrayList<Integer> scoresForUserRound4;
-    private ArrayList<Integer> scoresForUserRound5;
 
-    private ArrayList<Integer>scoresForGlobalRound1;
-  
+
+    private ArrayList<String>scoresForGlobalRound1;
+    private ArrayList<String>scoresForGlobalRound2;
+    private ArrayList<String>scoresForGlobalRound3;
+
     //theme
  
     private String theme;
@@ -174,96 +175,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //Round 4 Personal Scores
-        scoresForUserRound4 = new ArrayList<>();
-        DatabaseReference referenceRound4 = FirebaseDatabase.getInstance().getReference();
-        Query queryRound4 = referenceRound4.child("Round4").child(mFirebaseUser.getUid()).orderByValue();
-        queryRound4.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists()){
-
-                    for(DataSnapshot issue : snapshot.getChildren() ){
-                        scoresForUserRound4.add(Integer.parseInt(issue.getValue().toString()));
-
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-        //Round 5 Personal Scores
-        scoresForUserRound5 = new ArrayList<>();
-        DatabaseReference referenceRound5 = FirebaseDatabase.getInstance().getReference();
-        Query queryRound5 = referenceRound5.child("Round5").child(mFirebaseUser.getUid()).orderByValue();
-        queryRound5.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists()){
-
-                    for(DataSnapshot issue : snapshot.getChildren() ){
-                        scoresForUserRound5.add(Integer.parseInt(issue.getValue().toString()));
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
         //Round 1 Global Scores
         scoresForGlobalRound1 = new ArrayList<>();
         DatabaseReference referenceGlobalRound1 = FirebaseDatabase.getInstance().getReference();
-        Query queryGlobalRound1 = referenceGlobalRound1.child("Round1");
+        Query queryGlobalRound1 = referenceGlobalRound1.child("globalRound1").orderByValue();
         queryGlobalRound1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if(snapshot.exists()){
 
-                    ArrayList<String> s = new ArrayList<String>();
                     for(DataSnapshot issue : snapshot.getChildren() ){
-                        s.add(issue.getKey());
-                    }
-
-                    for(int i = 0; i < s.size();i++){
-
-                        DatabaseReference referenceInsideGlobalRound1 = FirebaseDatabase.getInstance().getReference();
-                        Query queryInsideGlobalRound1 = referenceInsideGlobalRound1.child("Round5").child(s.get(i)).orderByValue();
-
-                        queryInsideGlobalRound1.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                if(snapshot.exists()){
-
-                                    for(DataSnapshot issue : snapshot.getChildren() ){
-                                        scoresForGlobalRound1.add(Integer.parseInt(issue.getValue().toString()));
-
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-
-
+                        scoresForGlobalRound1.add((issue.getKey().toString().substring(1))+": " +issue.getValue().toString());
                     }
 
                 }
@@ -275,102 +198,54 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        //Round 2 Global Scores
-//        scoresForUserRound2 = new ArrayList<>();
-//        DatabaseReference referenceRound2 = FirebaseDatabase.getInstance().getReference();
-//        Query queryRound2 = referenceRound2.child("Round2").child(mFirebaseUser.getUid()).orderByValue();
-//        queryRound2.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                if(snapshot.exists()){
-//
-//                    for(DataSnapshot issue : snapshot.getChildren() ){
-//                        scoresForUserRound2.add(Integer.parseInt(issue.getValue().toString()));
-//
-//
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//        //Round 3 Global Scores
-//        scoresForUserRound3 = new ArrayList<>();
-//        DatabaseReference referenceRound3 = FirebaseDatabase.getInstance().getReference();
-//        Query queryRound3 = referenceRound3.child("Round3").child(mFirebaseUser.getUid()).orderByValue();
-//        queryRound3.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                if(snapshot.exists()){
-//
-//                    for(DataSnapshot issue : snapshot.getChildren() ){
-//                        scoresForUserRound3.add(Integer.parseInt(issue.getValue().toString()));
-//
-//
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//
-//        //Round 4 Global Scores
-//        scoresForUserRound4 = new ArrayList<>();
-//        DatabaseReference referenceRound4 = FirebaseDatabase.getInstance().getReference();
-//        Query queryRound4 = referenceRound4.child("Round4").child(mFirebaseUser.getUid()).orderByValue();
-//        queryRound4.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                if(snapshot.exists()){
-//
-//                    for(DataSnapshot issue : snapshot.getChildren() ){
-//                        scoresForUserRound4.add(Integer.parseInt(issue.getValue().toString()));
-//
-//
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//
-//        //Round 5 Global Scores
-//        scoresForUserRound5 = new ArrayList<>();
-//        DatabaseReference referenceRound5 = FirebaseDatabase.getInstance().getReference();
-//        Query queryRound5 = referenceRound5.child("Round5").child(mFirebaseUser.getUid()).orderByValue();
-//        queryRound5.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                if(snapshot.exists()){
-//
-//                    for(DataSnapshot issue : snapshot.getChildren() ){
-//                        scoresForUserRound5.add(Integer.parseInt(issue.getValue().toString()));
-//
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        //Round 2 Global Scores
+        scoresForGlobalRound2 = new ArrayList<>();
+        DatabaseReference referenceGlobalRound2 = FirebaseDatabase.getInstance().getReference();
+        Query queryGlobalRound2 = referenceRound2.child("globalRound2").orderByValue();
+        queryGlobalRound2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    for(DataSnapshot issue : snapshot.getChildren() ){
+                        scoresForGlobalRound2.add((issue.getKey().toString().substring(1))+": " + issue.getValue().toString());
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //Round 3 Global Scores
+        scoresForGlobalRound3 = new ArrayList<>();
+        DatabaseReference referenceGlobalRound3 = FirebaseDatabase.getInstance().getReference();
+        Query queryGlobalRound3 = referenceRound3.child("globalRound3").orderByValue();
+        queryGlobalRound3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    for(DataSnapshot issue : snapshot.getChildren() ){
+                        scoresForGlobalRound3.add((issue.getKey().toString().substring(1))+": " + issue.getValue().toString());
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 
@@ -393,9 +268,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("scoresRound1",scoresForUserRound1);
         intent.putExtra("scoresRound2",scoresForUserRound2);
         intent.putExtra("scoresRound3",scoresForUserRound3);
-        intent.putExtra("scoresRound4",scoresForUserRound4);
-        intent.putExtra("scoresRound5",scoresForUserRound5);
-
 
         startActivity(intent);
     }
@@ -405,7 +277,9 @@ public class MainActivity extends AppCompatActivity {
 
         intent.putExtra("theme", theme);
         intent.putExtra("myBestTime", 15);
-        intent.putExtra("globalBestTime", 9);
+        intent.putExtra("scoresGlobalRound1",scoresForGlobalRound1);
+        intent.putExtra("scoresGlobalRound2",scoresForGlobalRound2);
+        intent.putExtra("scoresGlobalRound3",scoresForGlobalRound3);
         startActivity(intent);
     }
 
