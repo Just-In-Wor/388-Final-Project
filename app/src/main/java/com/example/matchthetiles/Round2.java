@@ -842,7 +842,7 @@ public class Round2 extends AppCompatActivity {
     private void updateGlobalScore() {
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference referenceRound1 = FirebaseDatabase.getInstance().getReference();
-        Query queryRound1 = referenceRound1.child("globalRound2").child(mFirebaseUser.getDisplayName());
+        Query queryRound1 = referenceRound1.child("globalRound2");
 
         queryRound1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -851,7 +851,7 @@ public class Round2 extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference("globalRound2/" + mFirebaseUser.getDisplayName());
                 if(snapshot.exists()){
                     for(DataSnapshot issue : snapshot.getChildren() ){
-                        if(Integer.parseInt(issue.getValue().toString()) > time){
+                        if(Integer.parseInt(issue.getValue().toString()) > time && issue.getKey().equals(mFirebaseUser.getDisplayName())){
                             myRef.setValue(time);
                         }
                     }
