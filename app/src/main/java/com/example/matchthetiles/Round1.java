@@ -1,5 +1,6 @@
 package com.example.matchthetiles;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
@@ -14,10 +15,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Telephony;
+import android.text.LoginFilter;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -40,6 +51,10 @@ public class Round1 extends AppCompatActivity {
     //Resource ids of the tiles flipped
     private ImageView firstTileResource;
 
+    private DatabaseReference mDatabase;
+
+    private FirebaseAuth mFirebaseAuth;
+
     private int themeid;
 
     Handler handler = new Handler();
@@ -60,6 +75,8 @@ public class Round1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_round1);
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         handler.postDelayed(timer, 1000);
         flippedUp = 0;
@@ -600,12 +617,51 @@ public class Round1 extends AppCompatActivity {
 
     public void Next(View v){
 
+        updatePersonalScore();
         //use this to go to next round
         Intent intent = new Intent(this,Round2.class);
         intent.putExtra("theme", theme);
         intent.putExtra("myBestTime", myBestTime);
         intent.putExtra("globalBestTime", globalBestTime);
         startActivity(intent);
+    }
+
+    private void updatePersonalScore(){
+        final int roundScore = time;
+        DatabaseReference referenceRound1 = FirebaseDatabase.getInstance().getReference();
+        Query queryRound1 = referenceRound1.child("Round1").child(mFirebaseAuth.getUid()).orderByValue();
+        queryRound1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Boolean notUpdated = false;
+                int count = 1;
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                    int testing = Integer.parseInt(singleSnapshot.getValue().toString());
+                        if(testing > roundScore) {
+                            notUpdated = true;
+                        }
+                    if(count == 5 && notUpdated != false) {
+                        String upDateKey = singleSnapshot.getKey().toString();
+                        for(int i=5;i>0;--i) {
+                            DatabaseReference myRef2 = database.getReference("Round1/" + mFirebaseAuth.getUid() + "/" + i);
+                            if (myRef2.getKey().equals(upDateKey)) {
+                                myRef2.setValue(roundScore);
+                            }
+                        }
+                    }
+                    count++;
+                    }
+                if(count<6){
+                    DatabaseReference myRef2 = database.getReference("Round1/" + mFirebaseAuth.getUid() + "/" + count);
+                    myRef2.setValue(roundScore);
+                }
+                }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("error", "onCancelled", databaseError.toException());
+            }
+        });
     }
 
 
