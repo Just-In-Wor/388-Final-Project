@@ -35,6 +35,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -115,6 +117,13 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
+                            for(int i=1;i<4;++i) {
+                                for(int j=1;j<6;++j) {
+                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                    DatabaseReference myRef = database.getReference("Round" + j + "/" + mFirebaseAuth.getUid() + "/" + i);
+                                    myRef.setValue(0);
+                                }
+                            }
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
