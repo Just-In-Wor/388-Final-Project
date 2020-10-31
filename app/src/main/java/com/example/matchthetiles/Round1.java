@@ -42,6 +42,7 @@ public class Round1 extends AppCompatActivity {
     private ImageView iv4;
     private ImageView iv5;
     private ImageView iv6;
+    private DataSnapshot issue1;
 
     //keeps track of how many are flipped up currently
     private int flippedUp;
@@ -691,15 +692,23 @@ public class Round1 extends AppCompatActivity {
         Query queryRound1 = referenceRound1.child("globalRound1");
 
         queryRound1.addListenerForSingleValueEvent(new ValueEventListener() {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("globalRound1/" + mFirebaseUser.getDisplayName());
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("globalRound1/" + mFirebaseUser.getDisplayName());
+
                 if(snapshot.exists()){
+                    boolean iamInHere = false;
                     for(DataSnapshot issue : snapshot.getChildren() ){
+                        if(issue.getKey().equals(mFirebaseUser.getDisplayName())){
+                            iamInHere = true;
+                        }
                         if(Integer.parseInt(issue.getValue().toString()) > time && issue.getKey().equals(mFirebaseUser.getDisplayName())){
                             myRef.setValue(time);
                         }
+                    }
+                    if(iamInHere == false) {
+                            myRef.setValue(time);
                     }
                 }
                 else{

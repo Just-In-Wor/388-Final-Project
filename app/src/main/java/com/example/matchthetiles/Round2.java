@@ -845,15 +845,23 @@ public class Round2 extends AppCompatActivity {
         Query queryRound1 = referenceRound1.child("globalRound2");
 
         queryRound1.addListenerForSingleValueEvent(new ValueEventListener() {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("globalRound2/" + mFirebaseUser.getDisplayName());
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("globalRound2/" + mFirebaseUser.getDisplayName());
+
                 if(snapshot.exists()){
+                    boolean iamInHere = false;
                     for(DataSnapshot issue : snapshot.getChildren() ){
+                        if(issue.getKey().equals(mFirebaseUser.getDisplayName())){
+                            iamInHere = true;
+                        }
                         if(Integer.parseInt(issue.getValue().toString()) > time && issue.getKey().equals(mFirebaseUser.getDisplayName())){
                             myRef.setValue(time);
                         }
+                    }
+                    if(iamInHere == false) {
+                        myRef.setValue(time);
                     }
                 }
                 else{
