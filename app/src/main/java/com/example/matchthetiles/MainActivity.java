@@ -263,12 +263,42 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Round1.class);
 
         intent.putExtra("theme", theme);
-        intent.putExtra("round1UserScore",scoresForUserRound1.get(0));
-        intent.putExtra("round2UserScore",scoresForUserRound2.get(0));
-        intent.putExtra("round3UserScore",scoresForUserRound3.get(0));
-        intent.putExtra("round1GlobalScore",scoresForGlobalRound1.get(0));
-        intent.putExtra("round2GlobalScore",scoresForGlobalRound2.get(0));
-        intent.putExtra("round3GlobalScore",scoresForGlobalRound3.get(0));
+        if(scoresForUserRound1.size() != 0) {
+            intent.putExtra("round1UserScore", scoresForUserRound1.get(0));
+        }
+        else{
+            intent.putExtra("round1UserScore", 0);
+        }
+        if(scoresForUserRound2.size() != 0) {
+            intent.putExtra("round2UserScore", scoresForUserRound2.get(0));
+        }
+        else{
+            intent.putExtra("round2UserScore", 0);
+        }
+        if(scoresForUserRound3.size() != 0) {
+            intent.putExtra("round3UserScore", scoresForUserRound3.get(0));
+        }
+        else{
+            intent.putExtra("round3UserScore", 0);
+        }
+        if(scoresForGlobalRound1.size() != 0) {
+            intent.putExtra("round1GlobalScore", scoresForGlobalRound1.get(0));
+        }
+        else{
+            intent.putExtra("round1GlobalScore", " ");
+        }
+        if(scoresForGlobalRound2.size() != 0) {
+            intent.putExtra("round2GlobalScore", scoresForGlobalRound2.get(0));
+        }
+        else{
+            intent.putExtra("round2GlobalScore", " ");
+        }
+        if(scoresForGlobalRound3.size() != 0) {
+            intent.putExtra("round3GlobalScore", scoresForGlobalRound3.get(0));
+        }
+        else{
+            intent.putExtra("round3GlobalScore", " ");
+        }
         startActivity(intent);
     }
 
@@ -277,6 +307,7 @@ public class MainActivity extends AppCompatActivity {
 
         intent.putExtra("theme", theme);
         intent.putExtra("username",mUsername);
+
         intent.putExtra("scoresRound1",scoresForUserRound1);
         intent.putExtra("scoresRound2",scoresForUserRound2);
         intent.putExtra("scoresRound3",scoresForUserRound3);
