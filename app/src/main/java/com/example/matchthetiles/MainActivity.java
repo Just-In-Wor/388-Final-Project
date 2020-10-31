@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
 
 
+
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
         if (mFirebaseUser == null) {
             // Not signed in, launch the Sign In activity
             startActivity(new Intent(this, SignInActivity.class));
@@ -194,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                 if(snapshot.exists()){
 
                     for(DataSnapshot issue : snapshot.getChildren() ){
-                        scoresForGlobalRound1.add((issue.getKey().toString().substring(1))+": " +issue.getValue().toString());
+                        scoresForGlobalRound1.add((issue.getKey().toString())+": " +issue.getValue().toString());
                     }
 
                 }
@@ -217,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
                 if(snapshot.exists()){
 
                     for(DataSnapshot issue : snapshot.getChildren() ){
-                        scoresForGlobalRound2.add((issue.getKey().toString().substring(1))+": " + issue.getValue().toString());
+                        scoresForGlobalRound2.add((issue.getKey().toString())+": " + issue.getValue().toString());
 
 
                     }
@@ -241,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 if(snapshot.exists()){
 
                     for(DataSnapshot issue : snapshot.getChildren() ){
-                        scoresForGlobalRound3.add((issue.getKey().toString().substring(1))+": " + issue.getValue().toString());
+                        scoresForGlobalRound3.add((issue.getKey().toString())+": " + issue.getValue().toString());
 
 
                     }
