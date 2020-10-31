@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String ANONYMOUS = "anonymous";
 
 
+    private int check;
+    private Intent i;
     // Firebase instance variables
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent i = getIntent();
+        i = getIntent();
         theme = i.getStringExtra("theme");
 
 
@@ -90,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         if (mFirebaseUser == null) {
             // Not signed in, launch the Sign In activity
@@ -103,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        check = 0;
         //Round 1 Personal Scores
         scoresForUserRound1 = new ArrayList<>();
         DatabaseReference referenceRound1 = FirebaseDatabase.getInstance().getReference();
@@ -117,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                         scoresForUserRound1.add(Integer.parseInt(issue.getValue().toString()));
 
 
+
                     }
                 }
             }
@@ -126,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
         //Round 2 Personal Scores
         scoresForUserRound2 = new ArrayList<>();
@@ -253,8 +261,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Round1.class);
 
         intent.putExtra("theme", theme);
-        intent.putExtra("myBestTime", 15);
-        intent.putExtra("globalBestTime", 9);
+        intent.putExtra("round1UserScore",scoresForUserRound1.get(0));
+        intent.putExtra("round2UserScore",scoresForUserRound2.get(0));
+        intent.putExtra("round3UserScore",scoresForUserRound3.get(0));
+        intent.putExtra("round1GlobalScore",scoresForGlobalRound1.get(0));
+        intent.putExtra("round2GlobalScore",scoresForGlobalRound2.get(0));
+        intent.putExtra("round3GlobalScore",scoresForGlobalRound3.get(0));
         startActivity(intent);
     }
 

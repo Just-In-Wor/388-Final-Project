@@ -1,5 +1,6 @@
 package com.example.matchthetiles;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
@@ -15,12 +16,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Round3 extends AppCompatActivity {
 
@@ -48,6 +52,10 @@ public class Round3 extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
 
+    private FirebaseUser mFirebaseUser;
+
+    private ArrayList<Integer> scoresForUserRound3;
+
     private int themeid;
 
     Handler handler = new Handler();
@@ -58,7 +66,8 @@ public class Round3 extends AppCompatActivity {
 
     int myBestTime;
 
-    int globalBestTime;
+    String globalBestTime;
+
     String theme;
 
     @Override
@@ -84,6 +93,9 @@ public class Round3 extends AppCompatActivity {
         iv9 = findViewById(R.id.imageView9);
         iv10 = findViewById(R.id.imageView10);
 
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
+
         switch(theme) {
             case "winter":
                 changeTheme(R.drawable.snowflaketile);
@@ -105,8 +117,10 @@ public class Round3 extends AppCompatActivity {
 
         myBestTime = 0;
 
-        globalBestTime = 0;
+        globalBestTime = "";
 
+        myBestTime = intent.getIntExtra("round3UserScore",0);
+        globalBestTime = intent.getStringExtra("round3GlobalScore");
         ((TextView) findViewById(R.id.textView2)).setText("Global Best Time: "+globalBestTime);
         ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
 

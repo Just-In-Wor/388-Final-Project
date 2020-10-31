@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Round1 extends AppCompatActivity {
@@ -44,16 +46,24 @@ public class Round1 extends AppCompatActivity {
     //keeps track of how many are flipped up currently
     private int flippedUp;
 
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+
+    private String globalRoundScore2;
+    private String globalRoundScore3;
+    private int userRoundScore2;
+    private int userRoundScore3;
+
     //id of the two tiles flipped up to know if they match
     //1 for cy, 2 for cycircle and 3 for statelogo
     private int firstTileHidden;
+
+    private ArrayList<Integer> scoresForUserRound1;
 
     //Resource ids of the tiles flipped
     private ImageView firstTileResource;
 
     private DatabaseReference mDatabase;
-
-    private FirebaseAuth mFirebaseAuth;
 
     private int themeid;
 
@@ -65,7 +75,8 @@ public class Round1 extends AppCompatActivity {
 
     int myBestTime;
 
-    int globalBestTime;
+    String globalBestTime;
+
     String theme;
 
 
@@ -77,7 +88,6 @@ public class Round1 extends AppCompatActivity {
         setContentView(R.layout.activity_round1);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-
         handler.postDelayed(timer, 1000);
         flippedUp = 0;
         Intent intent = getIntent();
@@ -111,10 +121,18 @@ public class Round1 extends AppCompatActivity {
 
         myBestTime = 0;
 
-        globalBestTime = 0;
+        globalBestTime = "";
 
+        myBestTime = intent.getIntExtra("round1UserScore",0);
+        globalBestTime = intent.getStringExtra("round1GlobalScore");
         ((TextView) findViewById(R.id.textView2)).setText("Global Best Time: "+globalBestTime);
         ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
+
+        userRoundScore2 = intent.getIntExtra("round2UserScore",0);
+        userRoundScore3 = intent.getIntExtra("round3UserScore",0);
+
+        globalRoundScore2 = intent.getStringExtra("round2GlobalScore");
+        globalRoundScore3 = intent.getStringExtra("round3GlobalScore");
 
     }
 
@@ -619,6 +637,12 @@ public class Round1 extends AppCompatActivity {
         //use this to go to next round
         Intent intent = new Intent(this,Round2.class);
         intent.putExtra("theme", theme);
+
+        intent.putExtra("round2UserScore",userRoundScore2);
+        intent.putExtra("round3UserScore",userRoundScore3);
+
+        intent.putExtra("round2GlobalScore",globalRoundScore2);
+        intent.putExtra("round3GlobalScore",globalRoundScore3);
         startActivity(intent);
     }
 
