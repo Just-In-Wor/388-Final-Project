@@ -88,9 +88,9 @@ public class Round2 extends AppCompatActivity {
                 break;
         }
 
-        myBestTime = intent.getIntExtra("myBestTime",0);
+        myBestTime = 0;
 
-        globalBestTime = intent.getIntExtra("globalBestTime",0);
+        globalBestTime = 0;
 
         ((TextView) findViewById(R.id.textView2)).setText("Global Best Time: "+globalBestTime);
         ((TextView) findViewById(R.id.textView3)).setText("My Best Time: "+myBestTime);
@@ -751,8 +751,6 @@ public class Round2 extends AppCompatActivity {
         //use this to go to next round
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("theme", theme);
-        intent.putExtra("myBestTime", myBestTime);
-        intent.putExtra("globalBestTime", globalBestTime);
         startActivity(intent);
     }
 
@@ -761,8 +759,6 @@ public class Round2 extends AppCompatActivity {
         //use this to go to next round
         Intent intent = new Intent(this,Round3.class);
         intent.putExtra("theme", theme);
-        intent.putExtra("myBestTime", myBestTime);
-        intent.putExtra("globalBestTime", globalBestTime);
         startActivity(intent);
     }
 

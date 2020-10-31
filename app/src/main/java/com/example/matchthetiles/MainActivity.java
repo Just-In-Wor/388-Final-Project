@@ -262,8 +262,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MyHighScores.class);
 
         intent.putExtra("theme", theme);
-        intent.putExtra("myBestTime", 15);
-        intent.putExtra("globalBestTime", 9);
         intent.putExtra("username",mUsername);
         intent.putExtra("scoresRound1",scoresForUserRound1);
         intent.putExtra("scoresRound2",scoresForUserRound2);
