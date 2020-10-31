@@ -791,6 +791,7 @@ public class Round2 extends AppCompatActivity {
 
     public void Next(View v){
         updatePersonalScore();
+        updateGlobalScore();
         //use this to go to next round
         Intent intent = new Intent(this,Round3.class);
         intent.putExtra("theme", theme);
@@ -834,6 +835,34 @@ public class Round2 extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.e("error", "onCancelled", databaseError.toException());
+            }
+        });
+    }
+
+    private void updateGlobalScore() {
+        mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference referenceRound1 = FirebaseDatabase.getInstance().getReference();
+        Query queryRound1 = referenceRound1.child("globalRound2").child(mFirebaseUser.getDisplayName());
+
+        queryRound1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("globalRound2/" + mFirebaseUser.getDisplayName());
+                if(snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren() ){
+                        if(Integer.parseInt(issue.getValue().toString()) > time){
+                            myRef.setValue(time);
+                        }
+                    }
+                }
+                else{
+                    myRef.setValue(time);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
     }
