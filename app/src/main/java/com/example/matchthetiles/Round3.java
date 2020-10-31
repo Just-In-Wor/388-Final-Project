@@ -976,7 +976,7 @@ public class Round3 extends AppCompatActivity {
     public void Next(View v){
 
         //use this to go to next round
-        Intent intent = new Intent(this,Round4.class);
+        Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("theme", theme);
         intent.putExtra("myBestTime", myBestTime);
         intent.putExtra("globalBestTime", globalBestTime);

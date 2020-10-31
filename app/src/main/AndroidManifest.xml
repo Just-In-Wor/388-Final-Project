@@ -16,8 +16,6 @@
         <activity android:name=".GlobalHighScores"></activity>
         <activity android:name=".MyHighScores" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".Round5" />
-        <activity android:name=".Round4" />
         <activity android:name=".Round3" />
         <activity android:name=".Round2" />
         <activity android:name=".Round1" />

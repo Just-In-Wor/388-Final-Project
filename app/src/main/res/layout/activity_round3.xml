@@ -183,7 +183,7 @@
         android:layout_marginStart="140dp"
         android:background="#FFEB3B"
         android:onClick="Next"
-        android:text="Advance to Round 4"
+        android:text="Quit To Main Menu"
         android:textColor="@android:color/holo_red_dark"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
