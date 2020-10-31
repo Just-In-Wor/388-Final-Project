@@ -7,6 +7,7 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.renderscript.Sampler;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Integer> scoresForUserRound3;
     private ArrayList<Integer> scoresForUserRound4;
     private ArrayList<Integer> scoresForUserRound5;
+
+    private ArrayList<Integer>scoresForGlobalRound1;
   
     //theme
  
@@ -210,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
                     for(DataSnapshot issue : snapshot.getChildren() ){
                         scoresForUserRound5.add(Integer.parseInt(issue.getValue().toString()));
 
-
                     }
                 }
             }
@@ -221,6 +223,154 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //Round 1 Global Scores
+        scoresForGlobalRound1 = new ArrayList<>();
+        DatabaseReference referenceGlobalRound1 = FirebaseDatabase.getInstance().getReference();
+        Query queryGlobalRound1 = referenceGlobalRound1.child("Round1");
+        queryGlobalRound1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    ArrayList<String> s = new ArrayList<String>();
+                    for(DataSnapshot issue : snapshot.getChildren() ){
+                        s.add(issue.getKey());
+                    }
+
+                    for(int i = 0; i < s.size();i++){
+
+                        DatabaseReference referenceInsideGlobalRound1 = FirebaseDatabase.getInstance().getReference();
+                        Query queryInsideGlobalRound1 = referenceInsideGlobalRound1.child("Round5").child(s.get(i)).orderByValue();
+
+                        queryInsideGlobalRound1.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                if(snapshot.exists()){
+
+                                    for(DataSnapshot issue : snapshot.getChildren() ){
+                                        scoresForGlobalRound1.add(Integer.parseInt(issue.getValue().toString()));
+
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+//        //Round 2 Global Scores
+//        scoresForUserRound2 = new ArrayList<>();
+//        DatabaseReference referenceRound2 = FirebaseDatabase.getInstance().getReference();
+//        Query queryRound2 = referenceRound2.child("Round2").child(mFirebaseUser.getUid()).orderByValue();
+//        queryRound2.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                if(snapshot.exists()){
+//
+//                    for(DataSnapshot issue : snapshot.getChildren() ){
+//                        scoresForUserRound2.add(Integer.parseInt(issue.getValue().toString()));
+//
+//
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//        //Round 3 Global Scores
+//        scoresForUserRound3 = new ArrayList<>();
+//        DatabaseReference referenceRound3 = FirebaseDatabase.getInstance().getReference();
+//        Query queryRound3 = referenceRound3.child("Round3").child(mFirebaseUser.getUid()).orderByValue();
+//        queryRound3.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                if(snapshot.exists()){
+//
+//                    for(DataSnapshot issue : snapshot.getChildren() ){
+//                        scoresForUserRound3.add(Integer.parseInt(issue.getValue().toString()));
+//
+//
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//
+//        //Round 4 Global Scores
+//        scoresForUserRound4 = new ArrayList<>();
+//        DatabaseReference referenceRound4 = FirebaseDatabase.getInstance().getReference();
+//        Query queryRound4 = referenceRound4.child("Round4").child(mFirebaseUser.getUid()).orderByValue();
+//        queryRound4.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                if(snapshot.exists()){
+//
+//                    for(DataSnapshot issue : snapshot.getChildren() ){
+//                        scoresForUserRound4.add(Integer.parseInt(issue.getValue().toString()));
+//
+//
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//
+//        //Round 5 Global Scores
+//        scoresForUserRound5 = new ArrayList<>();
+//        DatabaseReference referenceRound5 = FirebaseDatabase.getInstance().getReference();
+//        Query queryRound5 = referenceRound5.child("Round5").child(mFirebaseUser.getUid()).orderByValue();
+//        queryRound5.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                if(snapshot.exists()){
+//
+//                    for(DataSnapshot issue : snapshot.getChildren() ){
+//                        scoresForUserRound5.add(Integer.parseInt(issue.getValue().toString()));
+//
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
     }
 
 
