@@ -30,120 +30,120 @@ public class MyHighScores extends AppCompatActivity {
         ArrayList scoresRound1 = intent.getIntegerArrayListExtra("scoresRound1");
 
         if(scoresRound1.size() > 0) {
-            ((TextView) findViewById(R.id.score1Round1)).setText("1:         " + scoresRound1.get(0));
+            ((TextView) findViewById(R.id.score1Round1)).setText("   "+scoresRound1.get(0)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score1Round1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score1Round1)).setText("1:         00");
+            ((TextView) findViewById(R.id.score1Round1)).setText("  00  ");
         }
         if(scoresRound1.size() > 1) {
-            ((TextView) findViewById(R.id.score2Round1)).setText("2:         " + scoresRound1.get(1));
+            ((TextView) findViewById(R.id.score2Round1)).setText("   "+scoresRound1.get(1)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score2Round1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score2Round1)).setText("1:         00");
+            ((TextView) findViewById(R.id.score2Round1)).setText("  00  ");
         }
         if(scoresRound1.size() > 2){
-            ((TextView) findViewById(R.id.score3Round1)).setText("3:         " + scoresRound1.get(2));
+            ((TextView) findViewById(R.id.score3Round1)).setText("   " + scoresRound1.get(2)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score3Round1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score3Round1)).setText("1:         00");
+            ((TextView) findViewById(R.id.score3Round1)).setText("  00  ");
         }
         if(scoresRound1.size() > 3) {
-            ((TextView) findViewById(R.id.score4Round1)).setText("4:         " + scoresRound1.get(3));
+            ((TextView) findViewById(R.id.score4Round1)).setText("   "+scoresRound1.get(3)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score4Round1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score4Round1)).setText("1:         00");
+            ((TextView) findViewById(R.id.score4Round1)).setText("  00  ");
         }
         if(scoresRound1.size() > 4) {
-            ((TextView) findViewById(R.id.score5Round1)).setText("5:         " + scoresRound1.get(4));
+            ((TextView) findViewById(R.id.score5Round1)).setText("   "+scoresRound1.get(4)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score5Round1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score5Round1)).setText("1:         00");
+            ((TextView) findViewById(R.id.score5Round1)).setText("  00  ");
         }
 
         //Round 2 Scores
         ArrayList scoresRound2 = intent.getIntegerArrayListExtra("scoresRound2");
 
         if(scoresRound2.size() > 0) {
-            ((TextView) findViewById(R.id.score1Round2)).setText("1:         " + scoresRound2.get(0));
+            ((TextView) findViewById(R.id.score1Round2)).setText("   "+scoresRound2.get(0)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score1Round2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score1Round2)).setText("1:         00");
+            ((TextView) findViewById(R.id.score1Round2)).setText("  00  ");
         }
         if(scoresRound2.size() > 1) {
-            ((TextView) findViewById(R.id.score2Round2)).setText("2:         " + scoresRound2.get(1));
+            ((TextView) findViewById(R.id.score2Round2)).setText("   "+scoresRound2.get(1)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score2Round2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score2Round2)).setText("1:         00");
+            ((TextView) findViewById(R.id.score2Round2)).setText("  00  ");
         }
         if(scoresRound2.size() > 2) {
-            ((TextView) findViewById(R.id.score3Round2)).setText("3:         " + scoresRound2.get(2));
+            ((TextView) findViewById(R.id.score3Round2)).setText("   "+scoresRound2.get(2)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score3Round2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score3Round2)).setText("1:         00");
+            ((TextView) findViewById(R.id.score3Round2)).setText("  00  ");
         }
         if(scoresRound2.size() > 3) {
-            ((TextView) findViewById(R.id.score4Round2)).setText("4:         " + scoresRound2.get(3));
+            ((TextView) findViewById(R.id.score4Round2)).setText("   "+ scoresRound2.get(3)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score4Round2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score4Round2)).setText("1:         00");
+            ((TextView) findViewById(R.id.score4Round2)).setText("  00  ");
         }
         if(scoresRound2.size() > 4) {
-            ((TextView) findViewById(R.id.score5Round2)).setText("5:         " + scoresRound2.get(4));
+            ((TextView) findViewById(R.id.score5Round2)).setText("   "+scoresRound2.get(4)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score5Round2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score5Round2)).setText("1:         00");
+            ((TextView) findViewById(R.id.score5Round2)).setText("  00  ");
         }
 
         //Round 3 Scores
         ArrayList scoresRound3 = intent.getIntegerArrayListExtra("scoresRound3");
 
         if(scoresRound3.size() > 0) {
-            ((TextView) findViewById(R.id.score1Round3)).setText("1:         " + scoresRound3.get(0));
+            ((TextView) findViewById(R.id.score1Round3)).setText("   "+scoresRound3.get(0)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score1Round3)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score1Round3)).setText("1:         00");
+            ((TextView) findViewById(R.id.score1Round3)).setText("  00  ");
         }
         if(scoresRound3.size() > 1) {
-            ((TextView) findViewById(R.id.score2Round3)).setText("2:         " + scoresRound3.get(1));
+            ((TextView) findViewById(R.id.score2Round3)).setText("   "+scoresRound3.get(1)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score2Round3)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score2Round3)).setText("1:         00");
+            ((TextView) findViewById(R.id.score2Round3)).setText("  00  ");
 
         }
         if(scoresRound3.size() > 2) {
-            ((TextView) findViewById(R.id.score3Round3)).setText("3:         " + scoresRound3.get(2));
+            ((TextView) findViewById(R.id.score3Round3)).setText("   "+scoresRound3.get(2)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score3Round3)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score3Round3)).setText("1:         00");
+            ((TextView) findViewById(R.id.score3Round3)).setText("  00  ");
 
         }
         if(scoresRound3.size() > 3) {
-            ((TextView) findViewById(R.id.score4Round3)).setText("4:         " + scoresRound3.get(3));
+            ((TextView) findViewById(R.id.score4Round3)).setText("   "+scoresRound3.get(3)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score4Round3)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score4Round3)).setText("1:         00");
+            ((TextView) findViewById(R.id.score4Round3)).setText("  00  ");
 
         }
         if(scoresRound3.size() > 4) {
-            ((TextView) findViewById(R.id.score5Round3)).setText("5:         " + scoresRound3.get(4));
+            ((TextView) findViewById(R.id.score5Round3)).setText("   "+scoresRound3.get(4)+"   ");
         }
         else{
             ((TextView) findViewById(R.id.score5Round3)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.score5Round3)).setText("1:         00");
+            ((TextView) findViewById(R.id.score5Round3)).setText("  00  ");
 
         }
 
