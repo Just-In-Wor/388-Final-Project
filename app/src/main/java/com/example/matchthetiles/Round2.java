@@ -27,6 +27,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Round2 extends AppCompatActivity {
 
@@ -98,23 +99,62 @@ public class Round2 extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-        switch(theme) {
-            case "winter":
-                changeTheme(R.drawable.snowflaketile);
-                findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.winterbackground);
-                break;
-            case "fall":
-                changeTheme(R.drawable.leaf);
-                findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.fallbackground);
-                break;
-            case "spring":
+        if(theme != null){
+
+            switch(theme) {
+                case "winter":
+                    changeTheme(R.drawable.snowflaketile);
+                    findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.winterbackground);
+                    break;
+                case "fall":
+                    changeTheme(R.drawable.leaf);
+                    findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.fallbackground);
+                    break;
+                case "spring":
+                    changeTheme(R.drawable.spring);
+                    findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.springbackground);
+                    break;
+                case "summer":
+                    changeTheme(R.drawable.summer);
+                    findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.summerbackground);
+                    break;
+            }
+
+
+        }
+        else{
+            Calendar currentDateAndTime = Calendar.getInstance();
+
+            Calendar springtime = Calendar.getInstance();
+            Calendar summerTime = Calendar.getInstance();
+            Calendar fallTime = Calendar.getInstance();
+            Calendar winterTime = Calendar.getInstance();
+
+            springtime.set(currentDateAndTime.get(Calendar.YEAR), 3, 21,0,0);
+            summerTime.set(currentDateAndTime.get(Calendar.YEAR), 6, 21,0,0);
+            fallTime.set(currentDateAndTime.get(Calendar.YEAR), 9, 21,0,0);
+            winterTime.set(currentDateAndTime.get(Calendar.YEAR), 12, 21,0,0);
+
+            //If it the current date is in the spring
+            if(currentDateAndTime.after(springtime) && currentDateAndTime.before(summerTime)){
                 changeTheme(R.drawable.spring);
                 findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.springbackground);
-                break;
-            case "summer":
+            }
+            //If it the current date is in the summer
+            else if(currentDateAndTime.after(summerTime) && currentDateAndTime.before(fallTime)){
                 changeTheme(R.drawable.summer);
                 findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.summerbackground);
-                break;
+            }
+            //If it the current date is in the fall
+            else if(currentDateAndTime.after(fallTime) && currentDateAndTime.before(winterTime)){
+                changeTheme(R.drawable.leaf);
+                findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.fallbackground);
+            }
+            //If it the current date is in the winter
+            else{
+                changeTheme(R.drawable.snowflaketile);
+                findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.winterbackground);
+            }
         }
 
         myBestTime = 0;
