@@ -29,6 +29,8 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,6 +88,36 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
+        }
+        else{
+            Calendar currentDateAndTime = Calendar.getInstance();
+
+            Calendar springtime = Calendar.getInstance();
+            Calendar summerTime = Calendar.getInstance();
+            Calendar fallTime = Calendar.getInstance();
+            Calendar winterTime = Calendar.getInstance();
+
+            springtime.set(currentDateAndTime.get(Calendar.YEAR), 3, 21,0,0);
+            summerTime.set(currentDateAndTime.get(Calendar.YEAR), 6, 21,0,0);
+            fallTime.set(currentDateAndTime.get(Calendar.YEAR), 9, 21,0,0);
+            winterTime.set(currentDateAndTime.get(Calendar.YEAR), 12, 21,0,0);
+
+            //If it the current date is in the spring
+            if(currentDateAndTime.after(springtime) && currentDateAndTime.before(summerTime)){
+                findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.springbackground);
+            }
+            //If it the current date is in the summer
+            else if(currentDateAndTime.after(summerTime) && currentDateAndTime.before(fallTime)){
+                findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.summerbackground);
+            }
+            //If it the current date is in the fall
+            else if(currentDateAndTime.after(fallTime) && currentDateAndTime.before(winterTime)){
+                findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.fallbackground);
+            }
+            //If it the current date is in the winter
+            else{
+                findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.winterbackground);
+            }
         }
          //Set default username is anonymous.
         mUsername = ANONYMOUS;
