@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MyHighScores extends AppCompatActivity {
 
@@ -148,35 +149,88 @@ public class MyHighScores extends AppCompatActivity {
         }
 
         ConstraintLayout myHighScores = findViewById(R.id.myHighScoresLayout);
-        switch(theme) {
-            case "winter":
-                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.winterbackground);
 
-                for(int i = 0; i < myHighScores.getChildCount(); i++){
-                    ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.BLUE);
-                }
-                break;
-            case "fall":
-                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.fallbackground);
-                for(int i = 0; i < myHighScores.getChildCount(); i++){
-                    ((TextView)myHighScores.getChildAt(i)).setBackgroundResource(R.color.ORANGE);
-                    ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
-                }
-                break;
-            case "spring":
+        if(theme != null){
+            switch(theme) {
+                case "winter":
+                    findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.winterbackground);
+
+                    for(int i = 0; i < myHighScores.getChildCount(); i++){
+                        ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.BLUE);
+                    }
+                    break;
+                case "fall":
+                    findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.fallbackground);
+                    for(int i = 0; i < myHighScores.getChildCount(); i++){
+                        ((TextView)myHighScores.getChildAt(i)).setBackgroundResource(R.color.ORANGE);
+                        ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                    }
+                    break;
+                case "spring":
+                    findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.springbackground);
+                    for(int i = 0; i < myHighScores.getChildCount(); i++){
+                        ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.YELLOW);
+                        ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                    }
+                    break;
+                case "summer":
+                    findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.summerbackground);
+                    for(int i = 0; i < myHighScores.getChildCount(); i++){
+                        ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.GREEN);
+                        ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                    }
+                    break;
+            }
+        }
+        else {
+            Calendar currentDateAndTime = Calendar.getInstance();
+
+            Calendar springtime = Calendar.getInstance();
+            Calendar summerTime = Calendar.getInstance();
+            Calendar fallTime = Calendar.getInstance();
+            Calendar winterTime = Calendar.getInstance();
+
+            springtime.set(currentDateAndTime.get(Calendar.YEAR), 3, 21,0,0);
+            summerTime.set(currentDateAndTime.get(Calendar.YEAR), 6, 21,0,0);
+            fallTime.set(currentDateAndTime.get(Calendar.YEAR), 9, 21,0,0);
+            winterTime.set(currentDateAndTime.get(Calendar.YEAR), 12, 21,0,0);
+
+            //If it the current date is in the spring
+            if(currentDateAndTime.after(springtime) && currentDateAndTime.before(summerTime)){
+                theme = "spring";
                 findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.springbackground);
                 for(int i = 0; i < myHighScores.getChildCount(); i++){
                     ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.YELLOW);
                     ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
                 }
-                break;
-            case "summer":
+            }
+            //If it the current date is in the summer
+            else if(currentDateAndTime.after(summerTime) && currentDateAndTime.before(fallTime)){
+                theme = "summer";
                 findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.summerbackground);
                 for(int i = 0; i < myHighScores.getChildCount(); i++){
                     ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.GREEN);
                     ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
                 }
-                break;
+            }
+            //If it the current date is in the fall
+            else if(currentDateAndTime.after(fallTime) && currentDateAndTime.before(winterTime)){
+                theme = "fall";
+                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.fallbackground);
+                for(int i = 0; i < myHighScores.getChildCount(); i++){
+                    ((TextView)myHighScores.getChildAt(i)).setBackgroundResource(R.color.ORANGE);
+                    ((TextView)myHighScores.getChildAt(i)).setTextColor(Color.BLACK);
+                }
+            }
+            //If it the current date is in the winter
+            else{
+                theme = "winter";
+                findViewById(R.id.myHighScoresLayout).setBackgroundResource(R.drawable.winterbackground);
+
+                for(int i = 0; i < myHighScores.getChildCount(); i++){
+                    ((TextView)myHighScores.getChildAt(i)).setBackgroundColor(Color.BLUE);
+                }
+            }
         }
     }
 

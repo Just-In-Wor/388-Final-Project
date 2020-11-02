@@ -137,21 +137,25 @@ public class Round2 extends AppCompatActivity {
 
             //If it the current date is in the spring
             if(currentDateAndTime.after(springtime) && currentDateAndTime.before(summerTime)){
+                theme = "spring";
                 changeTheme(R.drawable.spring);
                 findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.springbackground);
             }
             //If it the current date is in the summer
             else if(currentDateAndTime.after(summerTime) && currentDateAndTime.before(fallTime)){
+                theme = "summer";
                 changeTheme(R.drawable.summer);
                 findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.summerbackground);
             }
             //If it the current date is in the fall
             else if(currentDateAndTime.after(fallTime) && currentDateAndTime.before(winterTime)){
+                theme = "fall";
                 changeTheme(R.drawable.leaf);
                 findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.fallbackground);
             }
             //If it the current date is in the winter
             else{
+                theme = "winter";
                 changeTheme(R.drawable.snowflaketile);
                 findViewById(R.id.round2Layout).setBackgroundResource(R.drawable.winterbackground);
             }

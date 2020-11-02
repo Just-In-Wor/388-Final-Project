@@ -104,18 +104,22 @@ public class MainActivity extends AppCompatActivity {
 
             //If it the current date is in the spring
             if(currentDateAndTime.after(springtime) && currentDateAndTime.before(summerTime)){
+                theme = "spring";
                 findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.springbackground);
             }
             //If it the current date is in the summer
             else if(currentDateAndTime.after(summerTime) && currentDateAndTime.before(fallTime)){
+                theme = "summer";
                 findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.summerbackground);
             }
             //If it the current date is in the fall
             else if(currentDateAndTime.after(fallTime) && currentDateAndTime.before(winterTime)){
+                theme = "fall";
                 findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.fallbackground);
             }
             //If it the current date is in the winter
             else{
+                theme = "winter";
                 findViewById(R.id.homeScreen).setBackgroundResource(R.drawable.winterbackground);
             }
         }
